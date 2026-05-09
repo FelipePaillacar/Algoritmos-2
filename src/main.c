@@ -1,19 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "deportista.h"
 #include "merge_sort.h"
 #include "quick_sort.h"
+#include "datos.h"
 
 int main() {
 
-    Deportista deportistas[] = {
-        {1, "Ana", 80.5},
-        {2, "Luis", 92.0},
-        {3, "Carlos", 70.3},
-        {4, "Maria", 88.1}
-    };
+    int n = 20;
 
-    int n = sizeof(deportistas) / sizeof(deportistas[0]);
+    Deportista* deportistas =
+        malloc(n * sizeof(Deportista));
+
+    if (deportistas == NULL) {
+        printf("Error de memoria.\n");
+        return 1;
+    }
+
+    generar_deportistas(deportistas, n);
 
     printf("=== ORIGINAL ===\n");
     imprimirDeportistas(deportistas, n);
@@ -22,6 +27,14 @@ int main() {
 
     printf("\n=== ORDENADO MERGE SORT ===\n");
     imprimirDeportistas(deportistas, n);
+
+    guardar_csv(
+        deportistas,
+        n,
+        "db/deportistas.csv"
+    );
+
+    free(deportistas);
 
     return 0;
 }
