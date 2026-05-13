@@ -1,54 +1,29 @@
-# Detección del Sistema Operativo
-ifeq ($(OS),Windows_NT)
-    # Comandos para Windows
-    RM = del /Q
-    MKDIR = if not exist $(BUILD_DIR) mkdir
-    EXEC = $(BUILD_DIR)\programa.exe
-    FIX_PATH = $(subst /,\,$1)
-    CLEAN_CMD = if exist $(BUILD_DIR) rd /s /q $(BUILD_DIR)
-else
-    # Comandos para Linux/macOS
-    RM = rm -f
-    MKDIR = mkdir -p
-    EXEC = $(BUILD_DIR)/programa
-    FIX_PATH = $1
-    CLEAN_CMD = rm -rf $(BUILD_DIR)
-endif
+# Compilador a utilizar
+CC=gcc
+# Flags para el compilador: -Wall para warnings, -g para debug
+CFLAGS=-Wall -g
+# Archivo ejecutable final
+TARGET=proyecto1
+# Encuentra todos los archivos .c en el directorio actual
+SOURCES=$(wildcard *.c)
+# Genera los nombres de los archivos objeto (.o) a partir de los fuentes
+OBJECTS=$(SOURCES:.c=.o)
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Wpedantic -O2
-INCLUDE = -I./incs
-SRC_DIR = src
-BUILD_DIR = build
-SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
+# Regla principal para construir todo
+all: $(TARGET)
 
-.PHONY: all clean run
+# Regla para enlazar los archivos objeto y crear el ejecutable
+$(TARGET): $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(TARGET)
 
-all: $(EXEC)
+# Regla para compilar archivos .c a .o
+# $< es el primer prerrequisito (el .c)
+# $@ es el nombre del objetivo (el .o)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(EXEC): $(SRC_FILES)
-	@$(MKDIR) $(BUILD_DIR)
-	$(CC) $(CFLAGS) $(INCLUDE) $(SRC_FILES) -o $(EXEC) -lm
-
-run: $(EXEC)
-	$(call FIX_PATH,./$(EXEC))
-
+# Regla para limpiar los archivos generados
 clean:
-	$(CLEAN_CMD)
+	rm -f *.o $(TARGET)
 
-folders:
-ifeq ($(OS),Windows_NT)
-	if not exist src mkdir src
-	if not exist incs mkdir incs
-	if not exist obj mkdir obj
-	if not exist build mkdir build
-	if not exist db mkdir db
-	if not exist plots mkdir plots
-	if not exist tests mkdir tests
-else
-	mkdir -p src incs obj build db plots tests
-endif
-
-plot:
-	@echo "Generando graficos..."
-	
+.PHONY: all clean
