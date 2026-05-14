@@ -1,29 +1,25 @@
-# Compilador a utilizar
-CC=gcc
-# Flags para el compilador: -Wall para warnings, -g para debug
-CFLAGS=-Wall -g
-# Archivo ejecutable final
-TARGET=proyecto1
-# Encuentra todos los archivos .c en el directorio actual
-SOURCES=$(wildcard *.c)
-# Genera los nombres de los archivos objeto (.o) a partir de los fuentes
-OBJECTS=$(SOURCES:.c=.o)
+CC = gcc
+CFLAGS = -Wall -Iinclude
 
-# Regla principal para construir todo
+SRC_DIR = src
+BUILD_DIR = build
+
+# Encuentra todos los archivos .c en la carpeta src
+SOURCES = $(wildcard $(SRC_DIR)/*.c)
+
+# El nombre del ejecutable final
+TARGET = $(BUILD_DIR)/programa
+
 all: $(TARGET)
 
-# Regla para enlazar los archivos objeto y crear el ejecutable
-$(TARGET): $(OBJECTS)
-	$(CC) $(OBJECTS) -o $(TARGET)
+$(TARGET): $(SOURCES)
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -o $@ $^
+	@echo "Compilación exitosa. Ejecutable generado en $(TARGET)"
 
-# Regla para compilar archivos .c a .o
-# $< es el primer prerrequisito (el .c)
-# $@ es el nombre del objetivo (el .o)
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Regla para limpiar los archivos generados
 clean:
-	rm -f *.o $(TARGET)
+	rm -rf $(BUILD_DIR)/*
+	@echo "Archivos compilados eliminados."
 
-.PHONY: all clean
+run: $(TARGET)
+	./$(TARGET)
