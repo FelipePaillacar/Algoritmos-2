@@ -201,12 +201,123 @@
 %-----------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Algoritmos de busqueda}
+Los algoritmos de busqueda funcionan mediante un metodo paso a paso para localizar datos especificos entre un conjunto de datos.
+Son métodos computacionales para localizar un elemento específico dentro de un conjunto de datos, devolviendo su posición o confirmando 
+su existencia.
 
+    \subsection{Busqueda binaria}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\columnwidth]{caption4.png}
+        \caption{Busqueda binaria}
+        \label{fig:busqueda-binaria}
+    \end{figure}
+    La busqueda binaria es un algoritmo que se basa en el principio de 'divide y venceras'. Permite encontrar elementos en una lista ordenada
+    mucho mas rapido que la busqueda lineal (bajo ciertas condiciones), esto se debe a que la busqueda binaria reduce el espacio de busqueda a la mitad en cada 
+    iteracion, hasta llegar a la solucion o determinar que el elemento no esta presente. Se llama binaria porque en cada paso se divide
+    el espacio de busqueda en dos partes iguales.  
+    La busqueda binaria es mas eficiente que la busqueda lineal bajo ciertas condiciones, tales como:
+    \begin{itemize}
+        \item \textbf{Datos ordenados:} Esta es la condicion obligatoria para que la busqueda binaria funcione, los datos deben estar ordenados
+        (ascendente o descendentemente). Si la lista esta desordenada, la busqueda binaria no funcionara correctamente y se tendra que utilizar
+        la busqueda lineal.
+        \item \textbf{Grandes volumenes de datos:} La diferencia se vuelve mas significativa a medida que el tamaño de la lista aumenta. 
+        Para listas pequeñas, la busqueda lineal puede ser mas rapida.
+    \end{itemize}
+    \subsection{Busqueda binaria recursiva}
+        La busqueda binaria recursiva es una implementacion de la busqueda binaria que utiliza la recursividad para dividir el espacio
+        de busqueda. Funciona de la siguiente manera:
+        \begin{itemize}
+            \item \textbf{Caso base 1:} Si el limite izquierdo supera al derecho, el elemento no esta en la lista
+            \item \textbf{Caso base 2:} Si el elemento del medio es igual al elemento buscado, se devuelve la posicion del elemento (elemento encontrado)
+            \item \textbf{Caso recursion}
+                \begin{itemize}
+                    \item Si el elemento es menor que el elemento medio, se llama a la funcion para la mitad izquierda.
+                    \item Si el elemento es mayor que el elemento medio, se llama a la funcion para la mitad derecha.
+                \end{itemize}
+        \end{itemize}
 
+    \subsubsection{Diferencias clave en ejecucion busqueda binaria iterativa y recursiva}
+        \begin{itemize}
+            \item La version iterativa es generalmente mas eficiente para sistemas con recursos limitados, ya que no consume memoria adicional, pero
+            visualmente el codigo puede verse mas 'sucio'
+            \item La version recursiva consume mas memoria RAM, debido a que realiza llamadas recursivas y en cada nueva llamada se crea un
+            nuevo marco de la pila de llamadas (stack).
+        \end{itemize}
 
+    \subsection{Complejidad temporal busqueda binaria iterativa y recursiva}
+        Teoricamente en el caso iterativo y recursivo se mantiene la misma complejidad temporal de $O(\log n)$, esto se deduce de la siguiente manera para el peor caso:
+        \begin{enumerate} \label{enum:busqueda-binaria}
+            \item Inicio: Se tiene una lista con n elementos
+            \item Paso 1: Se divide la lista en dos partes iguales, es decir $\frac{n}{2}$
+            \item Paso 2: Se divide nuevamente la mitad seleccionada en dos partes, es decir $\frac{n}{2} \cdot \frac{1}{2} = \frac{n}{4}$
+            \item Paso 3: Se divide nuevamente la mitad seleccionada en dos partes, es decir $\frac{n}{4} \cdot \frac{1}{2} = \frac{n}{8}$
+            \item Paso k: Queda $\frac{n}{2^k}$ elementos
+        \end{enumerate}
+        El algoritmo se detiene en el peor de los casos cuando solo queda un elemento por revisar, de el analisis anterior ($\frac{n}{2^k}$) podemos igualar
+        cuando solo queda un elemento, es decir:
+        $$\frac{n}{2^k} = 1$$
+        Luego despejando k, se obtiene:
+        $$k=\log_2(n)$$
+        Por lo tanto, el numero maximo de comparaciones es proporcional al logaritmo del numero de elementos, lo que se expresa como $O(\log n)$.\\ 
+        Luego para el mejor caso, el cual ocurre cuando el elemento que se busca esta exactamente en la mitad del array en la primera
+        comparacion, como solo se realiza una comparacion independientemente del tamaño del array, se tiene una complejidad de $O(1)$.  
+        Cabe recalcar que todos estos analisis son teoricos, los cuales se respaldaran con pruebas empíricas de tiempo de ejecución 
+        para determinar la eficiencia de cada algoritmo.
 
+        \begin{info}
+            La busqueda recursiva es mas facil de entender y escribir, pero puede consumir mas memoria debido a las llamadas recursivas.
+            La busqueda iterativa es mas eficiente en terminos de memoria, pero puede ser menos intuitiva para algunos programadores.
+        \end{info}
 
+    \subsection{Busqueda binaria para rangos}
+        La busqueda binaria para rangos es una variante del algoritmo clasico, la cual se utiliza cuando no solo se quiere saber si un elemento
+        existe, si no que se quiere encontrar un intervalo de elementos que cumplen con una condicion especifica o son identicos.\\
+        En lugar de detenerse apenas encuentra el valor, el algoritmo sigue buscando hacia los extremos para delimitar el 'rango' donde
+        se repite ese valor o donde se cumplen ciertas condiciones.\\
+        Se utiliza principalmente para responder dos tipos de preguntas en un arreglo ordenado:
+        \begin{itemize}
+            \item Contar repeticiones: ¿Cuántas veces se repite un valor específico en el arreglo?
+            \item Encontrar limites: ¿Cuáles son los indices de todos los elementos que estan entre un rango de valores específicos?
+        \end{itemize}
+        \subsubsection*{Proceso logico}
+        En lugar de recorrer toda la lista, el algoritmo hace dos busquedas rapidas, por ejemplo si se quiere encontrar el rango $10-50$:
+        \begin{itemize}
+            \item \textbf{Busqueda del limite inferior:} Se busca el numero $10$. Si el $10$ no esta presente, se busca el primer numero
+            que sea mayor que $10$ (por ejemplo $11$). El algoritmo devuelve ese indice (indice inicio=4).
+            \item \textbf{Busqueda del limite superior:} Se busca el numero $50$. Si el $50$ no esta presente, se busca el primer numero
+             que sea menor que $50$ (por ejemplo $49$). El algoritmo devuelve ese indice (indice final=50).
+        \end{itemize}
+        Una vez que se tienen ambos indices, ya se sabe exactamente donde comienza y termina dicho rango, sin tener que mirar los elementos
+        de en medio, ya que se sabe que todos los elementos que estan entre esos indices cumplen con la condicion de estar entre $10$ y $50$ porque
+        la lista ya estaba ordenada.\\
+        \begin{note}
+        La busqueda binaria para rangos es especialmente util en sistemas cuando se filtran productor por precio, cuando se buscan archivos por
+        fecha, etc.
+        \end{note}
+        \subsubsection{Complejidad temporal busqueda binaria para rangos}
+        \textbf{Peor caso:}\\
+        Para encontrar un rango (un limite inferior y superior), se realizan dos busquedas binarias independientes. Teoricamente esto se calcula como:
+        $$O(\log n)+O(\log n)=2 \cdot O(\log n)$$ como en analisis de algoritmos se ignoran las constantes, se tiene una complejidad temporal 
+        de $O(\log n)$ para encontrar un rango utilizando busqueda binaria para rangos en el peor caso.
 
+        \begin{info}
+            En el análisis de algoritmos e ingeniería, se ignoran las constantes porque lo que interesa es el comportamiento a largo plazo 
+            cuando el volumen de datos ($n$) se vuelve muy grande, pero para casos pequeños, las constantes pueden tener un impacto 
+            significativo en el rendimiento real del algoritmo.
+        \end{info}
+
+        \textbf{Mejor caso:}\\
+        El mejor caso ocurre cuando tanto el limite inferior como el superior se encuentran en la primera comparacion de sus respectivas busquedas
+        \begin{itemize}
+            \item \textbf{Busqueda del limite inferior:} El valor buscado esta justo en el medio del arreglo y el elemento anterior a el es diferente
+            \item \textbf{Busqueda del limite superior:} El valor buscado esta justo en el medio del arreglo y el elemento siguiente a el es diferente
+        \end{itemize}
+        Debido a esto es de orden $O(1)$, ya que al igual que la busqueda binaria simple, si los elementos que definen el inicio y el final
+        del rango estan en las posiciones que el algoritmo revisa primero, el tiempo de ejecucion no depende del tamaño del arreglo
+
+    \subsection{Busqueda exponencial}
+    
 
 
 \newpage

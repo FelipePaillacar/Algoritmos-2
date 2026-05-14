@@ -11,9 +11,15 @@
 \contentsline {subsection}{\numberline {4.2}Merge Sort con Insertion Sort}{5}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Quick Sort}{5}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Algoritmos de busqueda}{7}{section.5}%
-\contentsline {section}{\numberline {6}Algoritmos de seleccion}{8}{section.6}%
-\contentsline {section}{\numberline {7}Analisis de casos: ordenamiento}{9}{section.7}%
-\contentsline {section}{\numberline {8}Analisis de casos: busqueda}{10}{section.8}%
-\contentsline {section}{\numberline {9}Analisis de casos: seleccion}{11}{section.9}%
-\contentsline {section}{\numberline {10}Conclusion}{12}{section.10}%
+\contentsline {subsection}{\numberline {5.1}Busqueda binaria}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Busqueda binaria recursiva}{7}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Diferencias clave en ejecucion busqueda binaria iterativa y recursiva}{7}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}Complejidad temporal busqueda binaria iterativa y recursiva}{7}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Busqueda binaria para rangos}{8}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Complejidad temporal busqueda binaria para rangos}{8}{subsubsection.5.4.1}%
+\contentsline {section}{\numberline {6}Algoritmos de seleccion}{9}{section.6}%
+\contentsline {section}{\numberline {7}Analisis de casos: ordenamiento}{10}{section.7}%
+\contentsline {section}{\numberline {8}Analisis de casos: busqueda}{11}{section.8}%
+\contentsline {section}{\numberline {9}Analisis de casos: seleccion}{12}{section.9}%
+\contentsline {section}{\numberline {10}Conclusion}{13}{section.10}%
 \contentsfinish 

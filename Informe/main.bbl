@@ -19,7 +19,7 @@
 
 \refsection{0}
   \datalist[entry]{ynt/global//global/global}
-    \entry{freecodecamp-2022}{misc}{}
+    \entry{freecodecamp-2020}{misc}{}
       \name{author}{1}{}{%
         {{hash=9009ce234fbf9769e70cb48e5816a582}{%
            family={freeCodeCamp},
@@ -32,6 +32,34 @@
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
       \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{06}
+      \field{title}{{Algoritmos de búsqueda: búsqueda lineal y binaria explicadas}}
+      \field{year}{2020}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.freecodecamp.org/espanol/news/algoritmos-de-busqueda-lineal-y-binaria-explicadas/
+      \endverb
+      \verb{url}
+      \verb https://www.freecodecamp.org/espanol/news/algoritmos-de-busqueda-lineal-y-binaria-explicadas/
+      \endverb
+    \endentry
+    \entry{freecodecamp-2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9009ce234fbf9769e70cb48e5816a582}{%
+           family={freeCodeCamp},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{fullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{bibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -88,7 +116,7 @@
       \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -145,7 +173,7 @@
       \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -216,6 +244,28 @@
       \verb{url}
       \verb https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
       \endverb
+    \endentry
+    \entry{studocu2024busqueda}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5847b0c86a06d5ff14abd5e59dbc592d}{%
+           family={{Studocu}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \strng{fullhash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \strng{bibnamehash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \strng{authorbibnamehash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \strng{authornamehash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \strng{authorfullhash}{5847b0c86a06d5ff14abd5e59dbc592d}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.studocu.com/es/messages/question/7340543/}}
+      \field{note}{Accedido el: 14 de mayo de 2026}
+      \field{title}{Algoritmo recursivo de búsqueda binaria en {J}ava: {J}ustificación del tamaño del problema y complejidad}
+      \field{year}{2024}
+      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection
