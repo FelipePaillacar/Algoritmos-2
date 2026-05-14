@@ -1,0 +1,223 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{ynt/global//global/global}
+    \entry{freecodecamp-2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9009ce234fbf9769e70cb48e5816a582}{%
+           family={freeCodeCamp},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{fullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{bibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{title}{{La complejidad de los algoritmos simples y las estructuras de datos en JS}}
+      \field{year}{2022}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.freecodecamp.org/espanol/news/la-complejidad-de-los-algoritmos-simples-y-las-estructuras-de-datos-en-js/
+      \endverb
+      \verb{url}
+      \verb https://www.freecodecamp.org/espanol/news/la-complejidad-de-los-algoritmos-simples-y-las-estructuras-de-datos-en-js/
+      \endverb
+    \endentry
+    \entry{strivingengineer-2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=32188be4edad153913c308ad346a93ef}{%
+           family={Engineer},
+           familyi={E\bibinitperiod},
+           given={The\bibnamedelima Striving},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{32188be4edad153913c308ad346a93ef}
+      \strng{fullhash}{32188be4edad153913c308ad346a93ef}
+      \strng{bibnamehash}{32188be4edad153913c308ad346a93ef}
+      \strng{authorbibnamehash}{32188be4edad153913c308ad346a93ef}
+      \strng{authornamehash}{32188be4edad153913c308ad346a93ef}
+      \strng{authorfullhash}{32188be4edad153913c308ad346a93ef}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{{Lomuto Partition Scheme}}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://medium.com/@strivingengineer/lomuto-partition-scheme-f20eef44e76d
+      \endverb
+      \verb{url}
+      \verb https://medium.com/@strivingengineer/lomuto-partition-scheme-f20eef44e76d
+      \endverb
+    \endentry
+    \entry{freecodecamp-2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9009ce234fbf9769e70cb48e5816a582}{%
+           family={freeCodeCamp},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{fullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{bibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{{Significado del algoritmo divide y vencerás}}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.freecodecamp.org/espanol/news/significado-del-algoritmo-divide-y-venceras/
+      \endverb
+      \verb{url}
+      \verb https://www.freecodecamp.org/espanol/news/significado-del-algoritmo-divide-y-venceras/
+      \endverb
+    \endentry
+    \entry{europeanvalley-2023}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=77ec96548824492a012b2509cb9aff26}{%
+           family={Valley},
+           familyi={V\bibinitperiod},
+           given={European},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{77ec96548824492a012b2509cb9aff26}
+      \strng{fullhash}{77ec96548824492a012b2509cb9aff26}
+      \strng{bibnamehash}{77ec96548824492a012b2509cb9aff26}
+      \strng{authorbibnamehash}{77ec96548824492a012b2509cb9aff26}
+      \strng{authornamehash}{77ec96548824492a012b2509cb9aff26}
+      \strng{authorfullhash}{77ec96548824492a012b2509cb9aff26}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{09}
+      \field{title}{{La complejidad de los algoritmos}}
+      \field{year}{2023}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://europeanvalley.es/noticias/la-complejidad-de-los-algoritmos/
+      \endverb
+      \verb{url}
+      \verb https://europeanvalley.es/noticias/la-complejidad-de-los-algoritmos/
+      \endverb
+    \endentry
+    \entry{freecodecamp-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9009ce234fbf9769e70cb48e5816a582}{%
+           family={freeCodeCamp},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{fullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{bibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \field{extraname}{3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{title}{{Explicación de la notación Big O con ejemplos de Python y JavaScript}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.freecodecamp.org/espanol/news/explicacion-de-la-notacion-big-o-con-ejemplo/
+      \endverb
+      \verb{url}
+      \verb https://www.freecodecamp.org/espanol/news/explicacion-de-la-notacion-big-o-con-ejemplo/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f1e069787ece74531d112559945c6871}{%
+           family={GeeksforGeeks},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{{Merge Sort}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/dsa/merge-sort/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/dsa/merge-sort/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks-2024-quick}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f1e069787ece74531d112559945c6871}{%
+           family={GeeksforGeeks},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{{Quick Sort Algorithm}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

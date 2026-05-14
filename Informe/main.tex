@@ -1,0 +1,304 @@
+\documentclass[9pt,letterpaper,onecolumn]{rho-class/rho}
+%\usepackage[english]{babel}
+\usepackage[spanish,es-nodecimaldot,es-noindentfirst]{babel}
+
+\setbool{rho-abstract}{true} % Set false to hide the abstract
+\setbool{corres-info}{true} % Set false to hide the corresponding author section
+
+%----------------------------------------------------------
+% TITULO
+%----------------------------------------------------------
+
+\title{Proyecto 2: Divide y venceras}
+
+%----------------------------------------------------------
+% AUTORES
+%----------------------------------------------------------
+
+\author[$\dagger$]{Felipe Paillacar}
+\author[$\dagger$]{Constanza Araya}
+\author[$\dagger$]{Guillermo Vargas}
+
+%----------------------------------------------------------
+
+%\affil[1]{Affiliation of author one}
+%\affil[2]{Affiliation of author two}
+%\affil[3]{Affiliation of author three}
+\affil[$\dagger$]{Universidad de Magallanes}
+\dates{\today}
+\smalltitle{Diseño de algoritmos}
+\theday{\today}
+%----------------------------------------------------------
+% ABSTRACT
+%----------------------------------------------------------
+
+\begin{abstract}
+    Este proyecto aborda la implementación y el análisis experimental de algoritmos basados en la estrategia de divide y vencerás
+    integrados a un sistema de gestión de deportistas. El estudio se centra en evaluar el rendimiento de técnicas de ordenamiento 
+    como Merge Sort (con optimización de umbral) y Quick Sort (con diversas variantes de pivote), junto con métodos de búsqueda binaria y
+    exponencial. El trabajo integra un análisis de complejidad teórica contrastado con pruebas empíricas de tiempo de ejecución para 
+    determinar la eficiencia de cada algoritmo.
+\end{abstract}
+
+%----------------------------------------------------------
+
+%\keywords{keyword 1, keyword 2, keyword 3, keyword 4, keyword 5}
+
+%----------------------------------------------------------
+
+\begin{document}
+	
+    \maketitle
+    \thispagestyle{firststyle}
+    \tableofcontents
+    %\linenumbers
+\newpage
+%----------------------------------------------------------
+\section{Objetivos}
+\begin{itemize}
+    \item Implementar correctamente algoritmos utilizando la estrategia de divide y venceras.
+    \item Analizar empiricamente la complejidad y el rendimiento de los algoritmos implementados, evaluando ademas el impacto de sus distintas optimizaciones y variantes.
+    \item Documentar adecuadamente el codigo desarrollado y los resultados obtenidos del analisis.
+\end{itemize}
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Introduccion}
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Conceptos teoricos}
+    \subsection{Divide y venceras}
+    Divide y venceras es una estrategia algoritmica. Un algoritmo divide y venceras tipico resuelve un problema siguiendo tres pasos:
+        \begin{itemize}
+            \item \textbf{Dividir:} Descompones el problema en subproblemas mas pequeños, cada subproblema debe representar una parte del problema
+            original, Por lo general este paso emplea un enfoque recursivo para dividir el problema hasta que no es posible crear subproblemas mas pequeños.
+            \item \textbf{Vencer:} Resolver los sub-problemas recursivamente. Esto se conoce como el caso base, es decir el subproblema es tan pequeño 
+            que se 'resolvio solo'.
+            \item \textbf{Combinar:} Combinar apropiadamente las soluciones de los subproblemas para obtener la solucion del problema original.
+        \end{itemize}
+
+    \subsection{Complejidad de un algorimo}
+    La complejidad es una medida de que tan eficiente es el algoritmo para resolver un problema, es decir es una medida de cuanto tiempo y espacio
+    (memoria) requiere el algoritmo para producir una solucion.
+    La complejidad de un algoritmo se expresa utilzando la notacion \textbf{Big O}. Esta notacion proporciona una forma de comparar la complejidad
+    de distintos algoritmos. Por ejemplo, un algoritmo con una complejidad temporal de $O(n)$ se considera más eficiente que un algoritmo con 
+    una complejidad temporal de $O(n^2)$, porque crece a un ritmo más lento a medida que aumenta el tamaño de entrada.
+    En general, el objetivo del diseño de algoritmos es encontrar algoritmos que sean eficientes y fáciles de implementar. 
+    Esto implica un compromiso entre la complejidad del tiempo y el espacio, así como otros factores como la simplicidad (facil entendimiento) 
+    y la mantenibilidad (facilidad de actualización, corrección o mejora).
+
+        \subsubsection{Conceptos clave de complejidad (notacion Big O)}
+        Es comun confundir la notacion Big O como una medida de tiempo, pero la realidad es que la notacion Big O nos indica cuantas operaciones
+        debe realizar un algoritmo para resolver un problema, ya que si fuera una medida de tiempo podria variar dependiendo del hardware en el que se estan
+        realizando las pruebas. Por ello se habla del mejor y peor caso, es decir el mejor caso o caso ideal seria cuando un algoritmo tiene que hacer operaciones minimas
+        para llegar a la solucion. Por ejemplo, en el caso de la busqueda lineal, el mejor caso es cuando el elemento que se busca esta en la primera posicion del arreglo, 
+        por lo que solo se realiza una operacion. A continuacion se muestra una comparacion de las funciones de complejidad mas comunes.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.4\columnwidth]{caption1.png}
+                \caption{Comparacion de las funciones de complejidad mas comunes.}
+                \label{fig:comparacion-complejidad}
+            \end{figure}
+            
+            \begin{itemize}
+                \item \textbf{$O(1):$} Tiempo constante. El tiempo de ejecución no cambia independiente del tamaño de la entrada.
+                \item \textbf{$O(\log n):$} Tiempo logaritmico, muy eficiente. El tiempo de ejecución crece lentamente a medida que aumenta el 
+                tamaño de la entrada.
+                \item \textbf{$O(n):$} Tiempo lineal. El tiempo de ejecución crece proporcionalmente al tamaño de la entrada.
+                \item \textbf{$O(n \log n):$} Tiempo log-lineal. Es casi una línea recta, pero con una ligera inclinación hacia arriba.
+                \item \textbf{$O(n^2):$} Tiempo cuadratico. El tiempo de ejecución crece proporcionalmente al cuadrado del tamaño de la entrada.
+            \end{itemize}
+
+    \subsection{Esquema de particion de Lomuto} \label{ssec:lomuto}
+    El esquema de particion de Lomuto es un algoritmo popular utilizado para dividir una matriz. Lomuto funciona seleccionando un elemento
+    de pivote, generalmente el ultimo elemento del array, y luego dividiendolo en dos subarrays de modo que los elementos menores o iguales
+    al pivote esten en el lado izqueirdo del pivote y los elementos mayores queden a su derecha. El esquema de particion de Lomuto
+    funciona de la siguiente manera:
+        \begin{itemize}
+            \item Se selecciona un elemento del array como pivote (generalmente el ultimo).
+            \item Se recorre la lista comparando cada elemento con el pivote. Los menores se mueven a la izquierda y los mayores a la derecha.
+            \item Al final del recorrido, se coloca el pivote en su lugar definitivo (entre las dos sublistas)
+            \item Se repite el mismo proceso en la sublista izquierda y en la derecha hasta que todos los elementos estén ordenados.
+        \end{itemize}
+            
+
+\section{Algoritmos de ordenamiento}
+    Los algoritmos de ordenamiento son un conjunto de procedimientos que organizan los elementos de una lista o arreglo en un orden 
+    específico, ya sea ascendente o descendente.
+    Los algoritmos de ordenamiento son importantes ya que facilitan la busqueda, la organizacion y el analisis de datos. Son fundamentales
+    en la eficiencia informatica ya que el desorden es costoso en terminos de tiempo y recursos. Algunas razones de su importancia incluyen:
+    \begin{itemize}
+        \item \textbf{Optimizacion de la busqueda}
+            \begin{itemize}
+                \item \textbf{Busqueda lineal:} Si los datos estan desordenados, se debe revisar uno por uno hasta encontrar el elemento deseado (complejidad $O(n)$). 
+                En cambio, si los datos estan ordenados, se pueden utilizar algoritmos de busqueda mas eficientes.
+                \item \textbf{Busqueda binaria:} Este algoritmo requiere que los datos esten ordenados para funcionar correctamente. 
+                Permite encontrar un elemento en tiempo logaritmico $O(\log n)$.
+            \end{itemize}
+        \item \textbf{Organizacion y visualizacion:} El ordenamiento permite agrupar elementos similares, lo cual es vital para:
+            \begin{itemize}
+                \item Eliminar duplicados: Es mas facil notar que un elemento esta duplicado si esta junto a su par.
+                \item Priorizacion: En sistemas operativos o servidores, ordenar procesos por prioridad asegura que lo mas importante se ejecute primero.
+            \end{itemize} 
+    \end{itemize}
+
+    \begin{info}
+        Antes de elegir un algoritmo de ordenamiento es importante hacer algunas preguntas: ¿Cuán grande son los datos que se ordenan?
+        ¿Cuánta memoria hay disponible? ¿Los datos creceran?
+    \end{info}
+        
+    \subsection{Merge Sort}\label{ssec:merge-sort}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\columnwidth]{caption2.png}
+            \caption{Merge sort no adaptativo}
+            \label{fig:merge-sort}
+        \end{figure}
+
+        Merge sort es un algoritmo de ordenamiento conocido por su eficiencia y estabilidad. Utiliza la estrategia de divide y venceras 
+        para ordenar una lista o arreglo. Funciona dividiendo recursivamente el arreglo en mitades hasta que cada subarreglo contiene 
+        un solo elemento, luego combina esos subarreglos de manera ordenada para formar el arreglo final ordenado.
+        Merge sort es un algoritmo no adaptativo, lo que significa que su rendimiento no mejora si el array esta previamente ordenado. 
+        Debido a esto su complejidad en el peor y mejor caso es $O(n \log n)$
+
+    \subsection{Merge Sort con Insertion Sort}\label{ssec:merge-sort-insertion}
+        Como se menciono anteriormente en \ref{ssec:merge-sort}, merge sort es un algoritmo no adaptativo, lo que significa que su 
+        rendimiento no mejora si el array esta previamente ordenado. Para ello se puede optimizar utilizando insertion sort para ordenar
+        subarreglos pequeños, ya que insertion sort es un algoritmo adaptativo, lo que significa que su rendimiento mejora si el array 
+        esta previamente ordenado, es decir Insertion sort no es 'ciego' como merge sort
+        Esto ayuda a que en teoria en el peor caso se mantenga la complejidad de merge sort $O(n \log n)$, pero en el mejor caso se 
+        mejora a $O(n)$, ya que insertion sort detecta que los subarreglos estan ordenados y como los subarreglos son pequeños, mejora 
+        significativamente el tiempo de ejecucion.
+
+
+    \subsection{Quick Sort}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\columnwidth]{caption3.png}
+            \caption{Quick sort}
+            \label{fig:quick-sort}
+        \end{figure}
+        Quick sort es un algoritmo de ordenamiento que utiliza la estrategia de divide y venceras que elige un elemento como pivote
+        y divide el array al rededor del pivote, como se nombro en \ref{ssec:lomuto}. Este algoritmo utiliza recursivudad, para ello es 
+        importante tener claro cual es el caso base, el cual es cuando el array tiene un solo elemento o esta vacio, 
+        ya que en ese caso el array ya esta ordenado.
+        Hay diferentes formas de elegir un pivote, como por ejemplo:
+        \begin{itemize}
+            \item \textbf{Pivote primer elemento}
+            \item \textbf{Pivote ultimo elemento}
+            \item \textbf{Pivote aleatorio}
+            \item \textbf{Pivote mediana de tres}
+        \end{itemize}
+        La eleccion del pivote es importante ya que puede afectar significativamente el rendimiento del algoritmo. Lo cual sera analizado
+        en el transcurso de este proyecto.
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+
+\section{Algoritmos de busqueda}
+
+
+
+
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+
+\section{Algoritmos de seleccion}
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Analisis de casos: ordenamiento}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Analisis de casos: busqueda}
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Analisis de casos: seleccion}
+
+
+
+
+
+
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Conclusion}
+
+
+
+
+\begin{lstlisting}[language=C, caption=Here is an implementation of a delete function for a singly linked list in C.(\href{https://users.cs.fiu.edu/~weiss/\#dsaac2e}{Source code})]
+    /* Delete from a list */
+/* Cell pointed to by P->Next is wiped out */
+    /* Assume that the position is legal */
+    /* Assume use of a header node */
+
+    void
+    Delete( ElementType X, List L )
+    {
+        Position P, TmpCell;
+
+        P = FindPrevious( X, L );
+
+        if( !IsLast( P, L ) )  /* Assumption of header use */
+        {                      /* X is found; delete it */
+            TmpCell = P->Next;
+            P->Next = TmpCell->Next;  /* Bypass deleted cell */
+            free( TmpCell );
+        }
+    }
+\end{lstlisting}
+
+
+%----------------------------------------------------------
+\newpage
+\nocite{*}
+\printbibliography
+
+%----------------------------------------------------------
+
+\end{document}
