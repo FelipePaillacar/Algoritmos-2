@@ -245,7 +245,7 @@ su existencia.
             nuevo marco de la pila de llamadas (stack).
         \end{itemize}
 
-    \subsection{Complejidad temporal busqueda binaria iterativa y recursiva}
+    \subsection{Complejidad temporal busqueda binaria iterativa y recursiva}\label{ssec:complejidad-busqueda-binaria}
         Teoricamente en el caso iterativo y recursivo se mantiene la misma complejidad temporal de $O(\log n)$, esto se deduce de la siguiente manera para el peor caso:
         \begin{enumerate} \label{enum:busqueda-binaria}
             \item Inicio: Se tiene una lista con n elementos
@@ -301,7 +301,7 @@ su existencia.
         $$O(\log n)+O(\log n)=2 \cdot O(\log n)$$ como en analisis de algoritmos se ignoran las constantes, se tiene una complejidad temporal 
         de $O(\log n)$ para encontrar un rango utilizando busqueda binaria para rangos en el peor caso.
 
-        \begin{info}
+        \begin{info}\label{info:constantes}
             En el análisis de algoritmos e ingeniería, se ignoran las constantes porque lo que interesa es el comportamiento a largo plazo 
             cuando el volumen de datos ($n$) se vuelve muy grande, pero para casos pequeños, las constantes pueden tener un impacto 
             significativo en el rendimiento real del algoritmo.
@@ -317,8 +317,67 @@ su existencia.
         del rango estan en las posiciones que el algoritmo revisa primero, el tiempo de ejecucion no depende del tamaño del arreglo
 
     \subsection{Busqueda exponencial}
-    
+    El algoritmo de búsqueda exponencial se centra en un rango de un array de entrada donde 
+    asume que debe estar presente el elemento requerido, y realiza una búsqueda binaria en 
+    ese pequeño rango. Este algoritmo también se conoce como búsqueda por duplicación o 
+    búsqueda de dedos.\\
 
+    Este algoritmo aumenta exponencialmente en potencias de dos, esto debido a que
+    busca el elemento dando saltos cada vez mayores, es decir, primero revisa el elemento 
+    en la posición $1$, luego en la posición $2$, luego en la posición $4$, luego en la 
+    posición $8$, y así sucesivamente, hasta que encuentra un elemento que es mayor que el 
+    elemento buscado o hasta que se sale del rango del array. Una vez que se encuentra el 
+    elemento mayor que el buscado, se realiza una búsqueda binaria en el rango identificado.\\
+
+    \subsubsection{Funcionamiento de la busqueda exponencial}
+    En el algoritmo de búsqueda exponencial, el salto comienza desde el primer índice del array. Por lo tanto, comparamos manualmente el
+    primer elemento como primer paso del algoritmo.
+
+    \begin{itemize}
+        \item \textbf{Paso 1:}Se compara el elemento en la posición $1$ con el elemento 
+        buscado. Si coinciden, se devuelve la posición $1$.
+        \item \textbf{Paso 2:} Si el elemento no coincide, se compara el elemento con el siguiente indice (2,4,8....)
+        y asi sucesivamente, hasta que se encuentra un elemento que es mayor que el elemento 
+        buscado o hasta que se sale del rango del array.
+        \item \textbf{Paso 3:}Cuando se sabe que el elemento buscado esta entre el ultimo salto
+        del array y el penultimo, se aplica busqueda binaria unicamente en ese intervalo.
+    \end{itemize}
+
+    \subsubsection{Complejidad temporal}
+    \textbf{Mejor caso:}\\
+    El mejor caso ocurre cuando el elemento buscado esta en la primera posicion del array array[0],
+    ya que en ese caso cae en la comprobacion \textbf{if (arreglo[0] == objetivo) return 0;}
+    como se realiza una sola comparaacion, la complejidad temporal en el mejor caso es $O(1)$.
+
+    \textbf{Peor caso:}\\
+    En el peor de los casos, tenemos que recorrer el arreglo hasta encontrar el rango donde 
+    está el dato. Sin embargo, como los saltos son cada vez más grandes (1, 2, 4, 8...), 
+    llegamos a posiciones muy lejanas en muy pocos pasos. Por eso, aunque el dato esté muy 
+    al final, el tiempo que tarda no crece de forma pesada, sino que se mantiene eficiente
+    porque solo trabaja con la parte del arreglo donde realmente está el objetivo.\\
+    Es por esto que la complejidad esta dada por $O(\log i)$, esto se debe a que hay que dar
+    $k$ saltos para encontrar la posicion $i$, de la siguiente manera:
+    $$2^{saltos(k)}=i$$
+    Aplicando logaritmo en ambos lados, se obtiene:
+    $$k=\log_2(i)$$
+    Luego, una vez que se encuentra el rango donde esta el elemento buscado, se realiza
+    una busqueda binaria en dicho rango, de \ref{sssec:complejidad-busqueda-binaria} se 
+    sabe que la busqueda binaria tiene una complejidad de $O(\log n)$,pero este intervalo
+    es mas pequeño que el original,es por eso que se expresa como $O(\log \frac{i}{2})$, 
+    por lo tanto, la complejidad total del algoritmo de busqueda exponencial en el peor caso 
+    es la suma
+    de la busqueda del rango ($O(\log i)$) y la busqueda binaria ($O(\log \frac{i}{2})$), 
+    lo que se expresa como:
+    $$O(\log i) + O(\log \frac{i}{2})$$
+    Por propiedades de los logaritmos:
+    $$O(\log \frac{i}{2})=O(\log i - \log 2)=O(\log i)-1$$
+    Reemplazando en la expresion original, se obtiene:
+    $$O(\log i) +O(\log i) - 1 = 2 \cdot O(\log i) - 1$$
+    Como se menciono anteriormente en \ref{info:constantes}, en el analisis de algoritmos 
+    se ignoran las constantes para datos muy grandes, por lo tanto, la complejidad temporal
+    del algoritmo de busqueda exponencial en el peor caso es $O(\log i)$.
+
+\subsection{Busqueda por interpolacion}
 
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%

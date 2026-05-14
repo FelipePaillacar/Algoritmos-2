@@ -245,6 +245,33 @@
       \verb https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/
       \endverb
     \endentry
+    \entry{studocu-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=92e09c44442352b361009270c8878f20}{%
+           family={StuDocu},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{92e09c44442352b361009270c8878f20}
+      \strng{fullhash}{92e09c44442352b361009270c8878f20}
+      \strng{bibnamehash}{92e09c44442352b361009270c8878f20}
+      \strng{authorbibnamehash}{92e09c44442352b361009270c8878f20}
+      \strng{authornamehash}{92e09c44442352b361009270c8878f20}
+      \strng{authorfullhash}{92e09c44442352b361009270c8878f20}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{title}{{Búsqueda exponencial: algo básico}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.studocu.com/es-mx/document/preparatoria-9-de-la-universidad-autonoma-de-nuevo-leon/tecnologia-de-la-informacion-y-comunicacion/busqueda-exponencial-algo-basico/110361390
+      \endverb
+      \verb{url}
+      \verb https://www.studocu.com/es-mx/document/preparatoria-9-de-la-universidad-autonoma-de-nuevo-leon/tecnologia-de-la-informacion-y-comunicacion/busqueda-exponencial-algo-basico/110361390
+      \endverb
+    \endentry
     \entry{studocu2024busqueda}{misc}{}
       \name{author}{1}{}{%
         {{hash=5847b0c86a06d5ff14abd5e59dbc592d}{%
@@ -266,6 +293,33 @@
       \field{title}{Algoritmo recursivo de búsqueda binaria en {J}ava: {J}ustificación del tamaño del problema y complejidad}
       \field{year}{2024}
       \true{nocite}
+    \endentry
+    \entry{tutorialspoint-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=da653faa9f00528be9a57f3474f0e437}{%
+           family={Tutorialspoint},
+           familyi={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{da653faa9f00528be9a57f3474f0e437}
+      \strng{fullhash}{da653faa9f00528be9a57f3474f0e437}
+      \strng{bibnamehash}{da653faa9f00528be9a57f3474f0e437}
+      \strng{authorbibnamehash}{da653faa9f00528be9a57f3474f0e437}
+      \strng{authornamehash}{da653faa9f00528be9a57f3474f0e437}
+      \strng{authorfullhash}{da653faa9f00528be9a57f3474f0e437}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{{Exponential Search}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.tutorialspoint.com/data_structures_algorithms/exponential_search.htm
+      \endverb
+      \verb{url}
+      \verb https://www.tutorialspoint.com/data_structures_algorithms/exponential_search.htm
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
