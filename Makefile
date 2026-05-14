@@ -1,25 +1,22 @@
 CC = gcc
-CFLAGS = -Wall -Iinclude
+CFLAGS = -Wall -Wextra -std=c99 -Iinclude
 
-SRC_DIR = src
-BUILD_DIR = build
+all: sistema tester
 
-# Encuentra todos los archivos .c en la carpeta src
-SOURCES = $(wildcard $(SRC_DIR)/*.c)
+# Programa interactivo para el Estudiante 1 (Aplicacion Practica)
+sistema: src/main.c src/algoritmos.c
+	$(CC) $(CFLAGS) -o sistema src/main.c src/algoritmos.c
 
-# El nombre del ejecutable final
-TARGET = $(BUILD_DIR)/programa
+# Programa automatizado para el Estudiante 2 (Medicion de Tiempos)
+tester: src/analisis_experimental.c src/algoritmos.c
+	$(CC) $(CFLAGS) -o tester src/analisis_experimental.c src/algoritmos.c
 
-all: $(TARGET)
-
-$(TARGET): $(SOURCES)
-	@mkdir -p $(BUILD_DIR)
-	$(CC) $(CFLAGS) -o $@ $^
-	@echo "Compilación exitosa. Ejecutable generado en $(TARGET)"
+# Regla para que el Estudiante 3 genere sus graficos con un solo comando
+graficos: tester
+	mkdir -p data plots
+	./tester
+	gnuplot plots/script.gp
 
 clean:
-	rm -rf $(BUILD_DIR)/*
-	@echo "Archivos compilados eliminados."
-
-run: $(TARGET)
-	./$(TARGET)
+	rm -f sistema tester
+	rm -f data/*.csv plots/*.png

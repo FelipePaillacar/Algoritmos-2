@@ -1,41 +1,60 @@
-Este proyecto en C implementa diversos algoritmos de ordenamiento y búsqueda para gestionar una base de datos de deportistas. El sistema permite generar millones de registros, guardarlos en archivos `.csv` y analizar el rendimiento de distintos algoritmos bajo diferentes casos (Mejor, Peor y Caso Promedio).
+# Proyecto 2: Algoritmos de Divide y Vencerás
 
-El código fuente está organizado de forma modular 
+Este repositorio contiene la implementación y el análisis experimental de diversos algoritmos de ordenamiento, búsqueda y selección basados en la estrategia **Divide y Vencerás**, aplicados a un Sistema de Deportistas en lenguaje C.
 
-- `src/`: Contiene todo el código fuente (`.c`).
-- `include/`: Contiene los archivos de cabecera (`.h`).
-- `data/`: Carpeta destinada a la persistencia de datos (ej. `datos.csv`).
-- `build/`: Directorio donde se genera el ejecutable compilado.
-- `Makefile`: Script para automatizar la compilación del proyecto.
+## Características y Funcionalidades
 
+El proyecto se divide en dos enfoques principales:
 
+1. **Aplicación Práctica (Interactiva):** Un menú donde se puede simular el comportamiento de una base de datos con deportistas, permitiendo ordenar y buscar según diferentes criterios midiendo sus tiempos en tiempo real.
+2. **Análisis Experimental (Tester Automatizado):** Un generador de *benchmarks* que evalúa los algoritmos mediante miles de ejecuciones aleatorias, variando N desde 10,000 hasta 100,000, y exportando los tiempos a archivos `CSV` para graficarlos con Gnuplot.
 
-Tutorial de Uso (Menú Interactivo)
+### Algoritmos Implementados
+- **Ordenamiento:** MergeSort (clásico y optimizado), QuickSort (Lomuto con múltiples opciones de pivote), BubbleSort, SelectionSort, InsertionSort.
+- **Selección:** QuickSelect (Top N, k-ésimo elemento).
+- **Búsqueda:** Binaria (recursiva y de rangos), Exponencial, Interpolación.
 
-El programa cuenta con un menú interactivo en consola. Al iniciar, verás el **Menú Principal**, que divide los algoritmos en dos enfoques de programación:
+---
 
-- Tarea 1 (Ordenamientos Clásicos): Incluye algoritmos iterativos tradicionales.
-- Tarea 2 (Divide y Vencerás): Incluye algoritmos recursivos 
+## Estructura del Proyecto
 
-Gestión de Datos 
-Antes de probar cualquier algoritmo, necesitas datos. En este submenú puedes:
-- Generar deportistas aleatorios:Crea un set de datos desordenado (Caso promedio).
-- Generar datos ordenados o inversamente ordenados: Útil para evaluar cómo reaccionan los algoritmos en su Mejor o Peor caso.
-- Cargar desde CSV:** Carga a la memoria el archivo `data/datos.csv` previamente guardado.
+```text
+Algoritmos-2-main/
+├── Makefile                # Reglas de compilación automatizadas
+├── README.md               # Este documento
+├── src/
+│   ├── main.c              # Menú interactivo (Aplicación Práctica)
+│   ├── analisis_experimental.c # Generador automatizado de tiempos
+│   ├── algoritmos.c        # Lógica matemática e implementación
+│   └── algoritmos.h        # Declaraciones y Doxygen API
+├── data/                   # Archivos .csv de resultados (autogenerados)
+└── plots/                  # Scripts de Gnuplot e imágenes .png de salida
+```
 
-Algoritmos de Ordenamiento
-Una vez que tengas datos cargados, puedes ordenarlos eligiendo el campo (ID, Nombre, Equipo, Puntaje o Competencias).
-- En la Tarea 1** podrás probar algoritmos como: *Bubble Sort, Insertion Sort, Selection Sort y Cocktail Shaker Sort*.
--En la Tarea 2** podrás probar enfoques más rápidos como: *Merge Sort (Clásico y Optimizado)* y *Quick Sort* (eligiendo distintas estrategias de pivote como el Último, Primer, Aleatorio o Mediana de 3).
-El programa te mostrará por pantalla el tiempo exacto (en segundos) que tardó en ordenar.*
+---
 
-Algoritmos de Búsqueda
-Al igual que con el ordenamiento, los métodos varían:
-- En la Tarea 1:Búsqueda Secuencial (lenta pero no requiere orden) y *Búsqueda Binaria Iterativa*.
-- En la Tarea 2:*Opciones avanzadas como *Búsqueda Binaria Recursiva, Exponencial, por Interpolación* y *Búsqueda Binaria de Rangos* (para buscar a todos los deportistas con cierto puntaje).
-*Nota: La mayoría de búsquedas ordenarán la lista automáticamente por el campo requerido antes de buscar.*
+## Instrucciones de Uso
 
-Ranking y Selección 
-Este submenú permite extraer estadísticas valiosas de los deportistas:
-- Quick Select:Permite encontrar al "k-ésimo" mejor deportista (por puntaje) **sin tener que ordenar toda la lista**, haciéndolo extremadamente rápido.
-- Ranking Top N: Ordena los puntajes y te muestra en pantalla a los "N" mejores deportistas de la base de datos.
+### Prerrequisitos
+Necesitas tener instalados en tu entorno Linux/WSL:
+- Compilador `gcc` y herramientas `make`
+- `gnuplot` (Para generar los gráficos)
+
+### 1. Compilación
+Desde la raíz del proyecto, ejecuta:
+```bash
+make clean
+make
+```
+Esto creará dos ejecutables: `./sistema` y `./tester`.
+
+### 2. Ejecutar Menú Interactivo
+```bash
+./sistema
+```
+
+### 3. Generar Gráficos y Reportes .CSV de un solo golpe
+```bash
+make graficos
+```
+Este comando automatizado correrá las pruebas de tiempo, generará los archivos en la carpeta `data/` y llamará a `gnuplot` para procesar las imágenes resultantes en la carpeta `plots/`.
