@@ -64,7 +64,11 @@
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
 \section{Introduccion}
-
+En el siguiente informe se analizarán los resultados obtenidos mediante la implementación de distintos algoritmos de búsqueda, ordenamiento y 
+selección, los cuales se fundamentan en el enfoque de "divide y vencerás".
+Dichos algoritmos fueron desarrollados en el lenguaje C y puestos a prueba utilizando datos de deportistas generados de forma aleatoria. 
+Se realizaron mediciones de los tiempos de ejecución para cada método con el objetivo de evaluar su eficiencia empírica y contrastar estos 
+hallazgos con los resultados teóricos de la complejidad computacional\\
 
 
 
@@ -124,7 +128,13 @@
             \item Al final del recorrido, se coloca el pivote en su lugar definitivo (entre las dos sublistas)
             \item Se repite el mismo proceso en la sublista izquierda y en la derecha hasta que todos los elementos estén ordenados.
         \end{itemize}
-            
+
+    \subsection{Interpolacion} \label{ssec:interpolacion}
+    La interpolación de datos es un método matemático y estadístico utilizado para estimar valores desconocidos dentro de un rango de datos 
+    conocidos. En otras palabras, la interpolación permite calcular un valor intermedio entre dos puntos o entre una serie de puntos ya registrados.
+    Por ejemplo si se busca un valor 15 y sabemos que el 10 esta en el indice 5 y el 20 en el indice 15, por la interpolacion se 
+    asume que el valor que se busca esta cerca de la posicion 10
+    
 
 \section{Algoritmos de ordenamiento}
     Los algoritmos de ordenamiento son un conjunto de procedimientos que organizan los elementos de una lista o arreglo en un orden 
@@ -378,13 +388,88 @@ su existencia.
     del algoritmo de busqueda exponencial en el peor caso es $O(\log i)$.
 
 \subsection{Busqueda por interpolacion}
+Esta busqueda aplica la interpolacion, de \ref{ssec:interpolacion} sabemos que la interpolacion es un metodo matematico que se utiliza
+para estimar valores desconocidos dentro de un rango de datos conocidos\\
+La búsqueda por interpolación es una mejora sobre la búsqueda binaria para instancias, donde los valores en un arreglo ordenado están 
+distribuidos uniformemente. La interpolación construye nuevos puntos de datos dentro del rango de un conjunto discreto de puntos de datos 
+conocidos. La búsqueda binaria siempre va al elemento central para verificar. Por otro lado, la búsqueda por interpolación puede ir a diferentes 
+ubicaciones según el valor de la clave que se está buscando. Por ejemplo, si el valor de la clave está más cerca del último elemento, 
+es probable que la búsqueda por interpolación comience la búsqueda hacia el lado del final.\\
+Es similar a cuando buscas una palabra en un diccionario, si se busca la palabra 'Árbol', no se abre el libro por la mitad, sino que se va
+directo a las primeras páginas. Del mismo modo si se busca la palabra "Zapato", se vadirectamente al final.
+\subsubsection*{Calculo de la posición}
+La posición se calcula utilizando la siguiente fórmula:
+$$pos = low + \frac{(target - arr[low]) \cdot (high - low)}{arr[high] - arr[low]}$$
+Donde:
+\begin{itemize}
+    \item $low$ es el índice del primer elemento del arreglo.
+    \item $high$ es el índice del último elemento del arreglo.
+    \item $arr[low]$ es el valor del primer elemento del arreglo.
+    \item $arr[high]$ es el valor del último elemento del arreglo.
+    \item $target$ es el valor que se está buscando.
+\end{itemize}
+\textbf{Ejemplo:}\\
+Si se tiene un array de 10 elementos: array[10,20,30,40,50,60,70,80,90,100] y se busca el valor 80, se puede aplicar la formula de la siguiente 
+manera:
+\begin{itemize}
+    \item x=80 (lo que buscamos)
+    \item low=0 (indice del primer elemento)
+    \item high=9 (indice del ultimo elemento)
+    \item arr[low]=10 (valor del primer elemento)
+    \item arr[high]=100 (valor del ultimo elemento)
+\end{itemize}
+Aplicando la formula, se obtiene:
+$$pos = 0 +\frac{(80-10) \cdot (9-0)}{100-10}$$
+$$pos = 7$$
+Por lo tanto, la posición estimada del valor 80 es el índice 7, lo que es correcto, ya que el valor 80 se encuentra en esa posición del arreglo.
+
+\subsubsection{Complejidad temporal}
+\textbf{Caso promedio:}\\
+El caso promedio ocurre cuando los elementos del arreglo estan distribuidos uniformemente (como en el ejemplo anterior),
+en este caso, la búsqueda por interpolación tiene una complejidad de $O(\log \log n)$
+
+\textbf{Peor caso:}\\
+El peor caso ocurre cuando los elementos del arreglo no estan distribuidos uniformemente, por ejemplo si se tiene un arreglo con elementos donde
+la mayoria son numeros pequeños y solo hay un numero grande, como por ejemplo: array[1,2,4,6,100], si se busca el numero 2, debido al valor
+del ultimo elemento (100) la formula de interpolacion dara una posicion impresisa, es por esto que en el peor caso
+la busqueda por interpolacion tiene una complejidad de $O(n)$
 
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
 
 \section{Algoritmos de seleccion}
+Un algoritmo de selección es un método diseñado para encontrar el $k$-ésimo elemento más pequeño (o más grande) en una lista o arreglo desordenado.
+ A diferencia de los algoritmos de ordenamiento, que organizan toda la lista, la selección se enfoca en localizar un solo valor específico basado 
+ en su posición.
+    \subsection{Quick Select}
+QuickSelect es un algoritmo de selección diseñado para encontrar el $k$-ésimo elemento más pequeño en una lista desordenada. Su funcionamiento 
+se basa en encontrar un punto pivote: una posición que divide la lista en dos partes, donde cada elemento a la izquierda es menor o 
+igual que el pivote y cada elemento a la derecha es mayor.
+Una vez realizada la partición, se compara el índice del pivote con $k$:
+\begin{itemize}
+    \item Si el índice del pivote es igual a $k$, se ha encontrado el elemento y se devuelve.
+    \item Si el índice es mayor que $k$, el algoritmo se repite recursivamente solo para la parte izquierda.
+    \item Si el índice es menor que $k$, el algoritmo se repite para la parte derecha.
+\end{itemize}
+Existen dos esquemas clásicos para realizar esta partición:
+\begin{itemize}
+    \item Partición de Lomuto.
+    \item Partición de Hoare.
+\end{itemize}
+En este caso, se trabajará con la \textbf{partición de Lomuto}, detallada en la sección \ref{ssec:lomuto}. Este esquema elige 
+generalmente el último elemento como pivote y mantiene un índice $i$ mientras recorre el arreglo con un índice $j$. De esta forma, 
+los elementos desde el inicio hasta $i-1$ son menores o iguales al pivote, mientras que los elementos desde $i$ hasta $j-1$ son 
+mayores que este.
 
+    \subsubsection{Complejidad temporal:}
+    \textbf{Caso promedio:}\\
+    En el caso promedio, QuickSelect tiene una complejidad de $O(n)$, esto se debe a que cada partición divide el arreglo en dos partes 
+    aproximadamente iguales, descartando la mitad de los elementos en cada paso. Por lo tanto, el número de elementos a revisar se 
+    reduce significativamente en cada iteración.
 
+    \textbf{Peor caso:}\\
+    El peor caso ocurre cuando hay una mala eleccion del pivote, por ejemplo, si el pivote es siempre el elemento más grande o más pequeño 
+    del arreglo, lo que resulta en una partición muy desequilibrada. En este caso es de orden $O(n^2)$.
 
 
 

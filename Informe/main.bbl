@@ -47,7 +47,7 @@
       \verb https://www.freecodecamp.org/espanol/news/algoritmos-de-busqueda-lineal-y-binaria-explicadas/
       \endverb
     \endentry
-    \entry{freecodecamp-2022}{misc}{}
+    \entry{freecodecamp-2021}{misc}{}
       \name{author}{1}{}{%
         {{hash=9009ce234fbf9769e70cb48e5816a582}{%
            family={freeCodeCamp},
@@ -60,6 +60,34 @@
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
       \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{{Explicación del algoritmo Quickselect con ejemplos}}
+      \field{year}{2021}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.freecodecamp.org/espanol/news/explicacion-del-algoritmo-quickselect-con-ejemplos/
+      \endverb
+      \verb{url}
+      \verb https://www.freecodecamp.org/espanol/news/explicacion-del-algoritmo-quickselect-con-ejemplos/
+      \endverb
+    \endentry
+    \entry{freecodecamp-2022}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9009ce234fbf9769e70cb48e5816a582}{%
+           family={freeCodeCamp},
+           familyi={f\bibinitperiod}}}%
+      }
+      \strng{namehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{fullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{bibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
+      \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
+      \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -116,7 +144,7 @@
       \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -161,6 +189,33 @@
       \verb https://europeanvalley.es/noticias/la-complejidad-de-los-algoritmos/
       \endverb
     \endentry
+    \entry{euroinnova-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=30238a6477f7c38068fe709569cdd5ed}{%
+           family={Euroinnova},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{30238a6477f7c38068fe709569cdd5ed}
+      \strng{fullhash}{30238a6477f7c38068fe709569cdd5ed}
+      \strng{bibnamehash}{30238a6477f7c38068fe709569cdd5ed}
+      \strng{authorbibnamehash}{30238a6477f7c38068fe709569cdd5ed}
+      \strng{authornamehash}{30238a6477f7c38068fe709569cdd5ed}
+      \strng{authorfullhash}{30238a6477f7c38068fe709569cdd5ed}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{02}
+      \field{title}{{Interpolación}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://tecnologia.euroinnova.com/interpolacion
+      \endverb
+      \verb{url}
+      \verb https://tecnologia.euroinnova.com/interpolacion
+      \endverb
+    \endentry
     \entry{freecodecamp-2024}{misc}{}
       \name{author}{1}{}{%
         {{hash=9009ce234fbf9769e70cb48e5816a582}{%
@@ -173,7 +228,7 @@
       \strng{authorbibnamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authornamehash}{9009ce234fbf9769e70cb48e5816a582}
       \strng{authorfullhash}{9009ce234fbf9769e70cb48e5816a582}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -189,7 +244,7 @@
       \verb https://www.freecodecamp.org/espanol/news/explicacion-de-la-notacion-big-o-con-ejemplo/
       \endverb
     \endentry
-    \entry{geeksforgeeks-2024}{misc}{}
+    \entry{geeksforgeeks-2024-interpolation}{misc}{}
       \name{author}{1}{}{%
         {{hash=f1e069787ece74531d112559945c6871}{%
            family={GeeksforGeeks},
@@ -202,6 +257,34 @@
       \strng{authornamehash}{f1e069787ece74531d112559945c6871}
       \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
       \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{{Interpolation Search}}
+      \field{year}{2024}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://www.geeksforgeeks.org/dsa/interpolation-search/
+      \endverb
+      \verb{url}
+      \verb https://www.geeksforgeeks.org/dsa/interpolation-search/
+      \endverb
+    \endentry
+    \entry{geeksforgeeks-2024}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f1e069787ece74531d112559945c6871}{%
+           family={GeeksforGeeks},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{f1e069787ece74531d112559945c6871}
+      \strng{fullhash}{f1e069787ece74531d112559945c6871}
+      \strng{bibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authornamehash}{f1e069787ece74531d112559945c6871}
+      \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
+      \field{extraname}{2}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
@@ -229,7 +312,7 @@
       \strng{authorbibnamehash}{f1e069787ece74531d112559945c6871}
       \strng{authornamehash}{f1e069787ece74531d112559945c6871}
       \strng{authorfullhash}{f1e069787ece74531d112559945c6871}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{2}
       \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}

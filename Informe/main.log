@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.14)  14 MAY 2026 19:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.14)  14 MAY 2026 20:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2032,12 +2032,12 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 6.64998pt on input line 7.
 LaTeX Font Info:    Trying to load font information for TS1+phv on input line 2
-2.
+3.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2020/03/25 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 22.
+(Font)              scaled to size 6.64998pt on input line 23.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2053,22 +2053,27 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/s
 tix2-type1/stix2-mathrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix
-2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>] [2] [3]
+2-type1/stix2-t1.enc} <./figures/logo-umag-ing.png>] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 67--72
+
+ []
+
+[3]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 94.
+(Font)              scaled to size 7.59998pt on input line 98.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 94.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 98.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 7.59998pt on input line 94.
-<figures/caption1.png, id=113, 469.00218pt x 264.23718pt>
+(Font)              scaled to size 7.59998pt on input line 98.
+<figures/caption1.png, id=125, 469.00218pt x 264.23718pt>
 File: figures/caption1.png Graphic file (type png)
 <use figures/caption1.png>
-Package pdftex.def Info: figures/caption1.png  used on input line 102.
+Package pdftex.def Info: figures/caption1.png  used on input line 106.
 (pdftex.def)             Requested size: 217.26193pt x 122.40533pt.
  [4{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathit.enc}
  <./figures/caption1.png>]
 LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line
- 137.
+ 147.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
 File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
@@ -2076,52 +2081,52 @@ File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 Package microtype Info: Character `textflorin ' is missing
 (microtype)             in font `TS1/stix2/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
-<figures/caption2.png, id=124, 749.04843pt x 370.38374pt>
+<figures/caption2.png, id=136, 749.04843pt x 370.38374pt>
 File: figures/caption2.png Graphic file (type png)
 <use figures/caption2.png>
-Package pdftex.def Info: figures/caption2.png  used on input line 157.
+Package pdftex.def Info: figures/caption2.png  used on input line 167.
 (pdftex.def)             Requested size: 217.26193pt x 107.43114pt.
-<figures/caption3.png, id=126, 728.7225pt x 329.73187pt>
+<figures/caption3.png, id=138, 728.7225pt x 329.73187pt>
 File: figures/caption3.png Graphic file (type png)
 <use figures/caption3.png>
-Package pdftex.def Info: figures/caption3.png  used on input line 181.
+Package pdftex.def Info: figures/caption3.png  used on input line 191.
 (pdftex.def)             Requested size: 217.26193pt x 98.30649pt.
  [5{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc} <.
 /figures/caption2.png> <./figures/caption3.png>] [6]
-<figures/caption4.png, id=143, 328.22626pt x 335.75438pt>
+<figures/caption4.png, id=155, 328.22626pt x 335.75438pt>
 File: figures/caption4.png Graphic file (type png)
 <use figures/caption4.png>
-Package pdftex.def Info: figures/caption4.png  used on input line 211.
+Package pdftex.def Info: figures/caption4.png  used on input line 221.
 (pdftex.def)             Requested size: 162.95059pt x 166.68819pt.
  [7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc
 } <./figures/caption4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 291--295
+Underfull \hbox (badness 10000) in paragraph at lines 301--305
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--324
+Underfull \hbox (badness 10000) in paragraph at lines 330--334
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 325--331
+Underfull \hbox (badness 10000) in paragraph at lines 335--341
 
  []
 
 
 LaTeX Warning: Reference `sssec:complejidad-busqueda-binaria' on page 9 undefin
-ed on input line 364.
+ed on input line 374.
 
-[9] [10] [11] [12] [13]
+[9] [10] [11] [12] [13] [14]
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2023/02/27 1.9 (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-44.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
+29.
 
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -2130,7 +2135,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [14{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}] [15] 
+ [15{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}] [16] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main.aux
 LaTeX Info: Redefining \sptext on input line 15.
@@ -2150,13 +2155,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 69184 strings out of 476047
- 1497893 string characters out of 5792075
- 2789628 words of memory out of 5000000
- 90025 multiletter control sequences out of 15000+600000
- 743385 words of font info for 298 fonts, out of 8000000 for 9000
+ 69230 strings out of 476047
+ 1498965 string characters out of 5792075
+ 2789788 words of memory out of 5000000
+ 90051 multiletter control sequences out of 15000+600000
+ 751490 words of font info for 305 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 137i,13n,143p,1086b,1998s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 137i,13n,143p,1086b,2000s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic
@@ -2165,10 +2170,10 @@ gular.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt8.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (15 pages, 1413249 bytes).
+Output written on main.pdf (16 pages, 1424313 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 326 compressed objects within 4 object streams
- 83 named destinations out of 1000 (max. 500000)
- 75006 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 443 PDF objects out of 1000 (max. 8388607)
+ 361 compressed objects within 4 object streams
+ 91 named destinations out of 1000 (max. 500000)
+ 77086 words of extra memory for PDF output out of 89155 (max. 10000000)
 
