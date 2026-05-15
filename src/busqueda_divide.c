@@ -62,6 +62,48 @@ void busqueda_binaria_rango(Deportista arr[], int n, float valor_buscado) {
 }
 
 /**
+ * @brief Encuentra e imprime los deportistas dentro de un rango de puntajes (min - max).
+ * Utiliza búsqueda binaria para ubicar los extremos del rango en O(log n).
+ */
+void busqueda_rango_min_max(Deportista arr[], int n, float min_pts, float max_pts) {
+    int left = 0, right = n - 1;
+    int start_idx = -1, end_idx = -1;
+
+    // 1. Buscar el primer elemento que sea MAYOR O IGUAL a min_pts
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid].puntaje >= min_pts) {
+            start_idx = mid;
+            right = mid - 1; // Seguimos buscando hacia la izquierda para encontrar el primero
+        } else {
+            left = mid + 1;
+        }
+    }
+
+    // 2. Buscar el último elemento que sea MENOR O IGUAL a max_pts
+    left = 0; right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid].puntaje <= max_pts) {
+            end_idx = mid;
+            left = mid + 1; // Seguimos buscando hacia la derecha para encontrar el último
+        } else {
+            right = mid - 1;
+        }
+    }
+
+    // 3. Validar e imprimir resultados
+    if (start_idx != -1 && end_idx != -1 && start_idx <= end_idx) {
+        printf("\n--- DEPORTISTAS EN EL RANGO [%.2f - %.2f] ---\n", min_pts, max_pts);
+        for (int i = start_idx; i <= end_idx; i++) {
+            imprimir_deportista(arr[i]); 
+        }
+    } else {
+        printf("\nNo se encontraron deportistas en ese rango de puntajes.\n");
+    }
+}
+
+/**
  * @brief Búsqueda Exponencial: Aumenta exponencialmente el límite hasta hallar un subrango válido.
  * @param arr Arreglo de deportistas (Debe encontrarse ordenado).
  * @param n Tamaño total del arreglo.
