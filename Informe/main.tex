@@ -21,9 +21,9 @@
 
 %----------------------------------------------------------
 
-%\affil[1]{Affiliation of author one}
-%\affil[2]{Affiliation of author two}
-%\affil[3]{Affiliation of author three}
+\affil[1]{Docente: Jaqueline Aldridge Aguila}
+\affil[2]{Diseño de algoritmos}
+\affil[3]{Repositorio: \url{https://github.com/FelipePaillacar/Algoritmos-2/tree/main}}
 \affil[$\dagger$]{Universidad de Magallanes}
 \dates{\today}
 \smalltitle{Diseño de algoritmos}
@@ -471,48 +471,171 @@ mayores que este.
     El peor caso ocurre cuando hay una mala eleccion del pivote, por ejemplo, si el pivote es siempre el elemento más grande o más pequeño 
     del arreglo, lo que resulta en una partición muy desequilibrada. En este caso es de orden $O(n^2)$.
 
-
-
-
-
-
-
-
-
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
 \section{Analisis de casos: ordenamiento}
+    \subsection{Merge Sort y Merge Sort con Insertion Sort}
+        \subsubsection{Mejor caso}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\columnwidth]{merge-comparativa-mejor.png}
+                \caption{Merge sort vs Merge sort con Insertion sort mejor caso}
+                \label{fig:merge-sort-vs-insertion}
+            \end{figure}
+        Se puede observar que en el mejor caso, Merge Sort con Insertion Sort presenta un tiempo de ejecución notablemente inferior al Merge Sort tradicional. 
+        Esto se debe a que el Insertion Sort es un algoritmo adaptativo: su rendimiento mejora drásticamente cuando los datos ya están ordenados.A diferencia del 
+        Merge Sort convencional, que es 'ciego' y realiza todas las divisiones y comparaciones independientemente del orden de los datos, el Insertion Sort 
+        simplemente verifica que el elemento ya está en su posición, reduciendo el trabajo a $O(n)$ en los sub-arreglos finales. Esto permite que la versión 
+        optimizada aproveche la estructura previa del arreglo, optimizando la eficiencia de forma que el Merge tradicional no.
+
+        \subsubsection{Peor caso}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\columnwidth]{merge-comparativa-peor.png}
+                \caption{Merge sort vs Merge sort con Insertion sort peor caso}
+                \label{fig:merge-sort-vs-insertion-peor}
+            \end{figure}
+            Analizando el grafico se puede observar que a medida que el tamaño de la entrada aumenta, la diferencia en los tiempos de ejecución entre ambos
+            algoritmos se vuelve más evidente.\\
+            Aunque teóricamente ambos algoritmos mantienen una complejidad de $O(n \log n)$ en el peor caso, la versión optimizada muestra tiempos menores.
+            Mientras que el Merge Sort tradicional se vuelve lento al realizar una cantidad inmensa de divisiones minúsculas, la versión optimizada 
+            detiene esas divisiones antes de tiempo y resuelve los grupos restantes de forma más directa. El gráfico confirma que, al evitar esa carga de trabajo 
+            innecesaria en los niveles más bajos del proceso, se obtiene una ejecución mucho más ágil y eficiente.
+
+        \subsubsection{Caso promedio}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.6\columnwidth]{merge-comparativa-promedio.png}
+                \caption{Merge sort vs Merge sort con Insertion sort caso promedio}
+                \label{fig:merge-sort-vs-insertion-promedio}
+            \end{figure}
+            En el gráfico del caso promedio se observa que, al aumentar la cantidad de datos hasta 50,000, la version optimizada es claramente más eficiente que 
+            la clasica. Esto ocurre porque el método clásico gasta demasiado tiempo en los pasos finales de la división, realizando miles de operaciones pequeñas 
+            que suman un retraso importante. La línea verde, al detener las divisiones antes de tiempo, evita toda esa carga de trabajo innecesaria,
+            logrando que el tiempo total de ejecución sea mucho más bajo y estable.
 
 
 
+    \subsection{Quick Sort}
+
+            \subsubsection{Mejor caso}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\columnwidth]{quick-sort-mejor.png}
+                    \caption{Quick sort mejor caso}
+                    \label{fig:quick-sort-mejor}
+                \end{figure}
+                En el gráfico del mejor caso, se observa un contraste drástico dependiendo de la elección del pivote. Las variantes de Aleatorio y Mediana muestran un 
+        rendimiento óptimo, con tiempos de ejecución cercanos a cero, lo que demuestra una división eficiente del trabajo. Por otro lado, las estrategias de 
+        Primero y Último presentan curvas que crecen rápidamente, alcanzando tiempos significativamente mayores. Esto indica que, para este conjunto de datos, 
+        estas últimas estrategias no logran realizar una partición equilibrada, transformando lo que debería ser un caso ideal en uno mucho más pesado.
+
+    
+            \subsubsection{Peor caso}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\columnwidth]{quick-sort-peor.png}
+                    \caption{Quick sort peor caso}
+                    \label{fig:quick-sort-peor}
+                \end{figure}
+                Los resultados demuestran que el rendimiento de Quick Sort es altamente sensible a la elección del pivote. Mientras que las estrategias fijas 
+                pueden hacer que el algoritmo se vuelva extremadamente lento en ciertos escenarios, las variantes de Aleatorio y Mediana garantizan una alta
+                 eficiencia constante. Esto confirma que seleccionar el pivote de forma estratégica es la mejor manera de asegurar 
+                 que el programa responda rápidamente bajo cualquier condición.
 
 
+            \subsubsection{Caso promedio}
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\columnwidth]{quick-sort-promedio.png}
+                    \caption{Quick sort caso promedio}
+                    \label{fig:quick-sort-promedio}
+                \end{figure}
 
-
-
-
-
-
-
+                En el caso promedio, el gráfico muestra un rendimiento muy similar entre todas las variantes de pivote. Al trabajar con datos distribuidos de
+                 forma aleatoria, el algoritmo logra realizar particiones equilibradas de manera natural, manteniendo tiempos de ejecución extremadamente bajos
+                  (cerca de los 0.008 segundos para 50,000 elementos). La ligera diferencia en la variante Aleatoria se debe al pequeño costo adicional de 
+                  procesar la elección del pivote al azar, pero en general, el gráfico confirma que Quick Sort es un algoritmo altamente eficiente para 
+                  el uso cotidiano, independientemente de la estrategia de partición seleccionada.
 
 
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
-\section{Analisis de casos: busqueda}
+\section{Analisis de casos: busquedas}
+    \subsection{Mejor caso}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{busquedas-mejor.png}
+            \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva mejor caso}
+            \label{fig:busqueda-binaria-mejor}
+        \end{figure}
+        
+    \subsection{Peor caso}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{busquedas-peor.png}
+            \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva peor caso}
+            \label{fig:busqueda-binaria-peor}
+        \end{figure}
 
+    \subsection{Caso promedio}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{busquedas-promedio.png}
+            \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva caso promedio}
+            \label{fig:busqueda-binaria-promedio}
+        \end{figure}
+        
 
-
-
-
-
-
-
-
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Analisis de casos: Quick select}
+    \subsection{Comparativa de casos}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{quick-select-comparativa.png}
+            \caption{Quick select mejor caso vs peor caso vs caso promedio}
+            \label{fig:quick-select-comparativa}
+        \end{figure}
 
 
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
-\section{Analisis de casos: seleccion}
+\section{Analisis de casos: tarea 1 vs tarea 2}
+    \subsection{Mejor caso}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{t1-t2-mejor.png}
+            \caption{Tarea 1 vs Tarea 2 mejor caso}
+            \label{fig:t1-vs-t2-mejor}
+        \end{figure}
+
+    \subsection{Peor caso}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{t1-t2-peor.png}
+            \caption{Tarea 1 vs Tarea 2 peor caso}
+            \label{fig:t1-vs-t2-peor}
+        \end{figure}
+
+    \subsection{Caso promedio}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\columnwidth]{t1-t2-promedio.png}
+            \caption{Tarea 1 vs Tarea 2 caso promedio}
+            \label{fig:t1-vs-t2-promedio}
+        \end{figure}
+\newpage
+%-----------------------------------------------------------------------------------------------------------------------------------%
+\section{Desiciones del codigo}
+
+\subsection{Ranking}
+Para el ranking se decidio utilizar el algoritmo Quick select, ya que es un algoritmo de seleccion que permite encontrar el k-esimo elemento mas pequeño 
+de una lista sin necesidad de ordenar toda la lista, lo que lo hace muy eficiente para este tipo de tareas.
+A diferencia de un ordenamiento completo (como Merge Sort o Quick Sort) que tarda $O(n \log n)$, Quick Select tiene un tiempo de ejecución promedio 
+de $O(n)$. Esto significa que, para generar un ranking o encontrar un top específico de elementos, el programa realiza mucho menos trabajo y 
+consume menos recursos, ya que solo se enfoca en la sección que nos interesa del arreglo y descarta el resto. Es la herramienta ideal cuando el objetivo 
+no es ver todos los datos ordenados, sino extraer posiciones clave de forma rápida.
 
 
 
@@ -523,31 +646,23 @@ mayores que este.
 %-----------------------------------------------------------------------------------------------------------------------------------%
 \section{Conclusion}
 
+Los experimentos realizados con hasta 50,000 datos demuestran que la eficiencia real de los algoritmos depende de su capacidad para evitar trabajo 
+innecesario y adaptarse a la estructura de la información ya que en el caso de merge sort la versión optimizada supera a la clásica al dejar de dividir los 
+grupos pequeños y resolverlos de forma directa eliminando trámites internos de la computadora mientras que en quick sort quedó probado que el éxito reside en la
+ elección del pivote pues las variantes aleatoria y de mediana de tres funcionan como un seguro de velocidad que evita que el programa se bloquee ante datos
+  difíciles logrando que a gran escala estas pequeñas mejoras estratégicas marquen la diferencia entre una ejecución instantánea y una extremadamente lenta lo 
+  que confirma que los mejores resultados se obtienen cuando se combina la potencia de los métodos avanzados con la flexibilidad de simplificar los pasos finales 
+  del proceso.
 
 
-
-\begin{lstlisting}[language=C, caption=Here is an implementation of a delete function for a singly linked list in C.(\href{https://users.cs.fiu.edu/~weiss/\#dsaac2e}{Source code})]
-    /* Delete from a list */
-/* Cell pointed to by P->Next is wiped out */
-    /* Assume that the position is legal */
-    /* Assume use of a header node */
-
-    void
-    Delete( ElementType X, List L )
-    {
-        Position P, TmpCell;
-
-        P = FindPrevious( X, L );
-
-        if( !IsLast( P, L ) )  /* Assumption of header use */
-        {                      /* X is found; delete it */
-            TmpCell = P->Next;
-            P->Next = TmpCell->Next;  /* Bypass deleted cell */
-            free( TmpCell );
-        }
-    }
-\end{lstlisting}
-
+%----------------------------------------------------------
+\newpage
+\section{Contribuciones}
+\begin{itemize}
+    \item Felipe Paillacar: Desarrollo de código, ejecución de pruebas experimentales y redacción del informe.  
+    \item Guillermo Vargas: Desarrollo de código, ejecución de pruebas experimentales y redacción del informe.
+    \item Constanza Araya: Desarrollo de código, ejecución de pruebas experimentales y redacción del informe.
+\end{itemize}
 
 %----------------------------------------------------------
 \newpage
