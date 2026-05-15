@@ -42,7 +42,7 @@
 
 %----------------------------------------------------------
 
-%\keywords{keyword 1, keyword 2, keyword 3, keyword 4, keyword 5}
+\keywords{Divide y Vencerás, Análisis Experimental, Eficiencia Algorítmica.}
 
 %----------------------------------------------------------
 
@@ -51,6 +51,7 @@
     \maketitle
     \thispagestyle{firststyle}
     \tableofcontents
+    \newpage
     %\linenumbers
 \newpage
 %----------------------------------------------------------
@@ -59,6 +60,7 @@
     \item Implementar correctamente algoritmos utilizando la estrategia de divide y venceras.
     \item Analizar empiricamente la complejidad y el rendimiento de los algoritmos implementados, evaluando ademas el impacto de sus distintas optimizaciones y variantes.
     \item Documentar adecuadamente el codigo desarrollado y los resultados obtenidos del analisis.
+
 \end{itemize}
 
 \newpage
@@ -569,6 +571,22 @@ mayores que este.
             \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva mejor caso}
             \label{fig:busqueda-binaria-mejor}
         \end{figure}
+        Para el mejor caso todos los algoritmos de busqueda deberian ser de orden $O(1)$,esto se debe a que para cada caso el escenario de busqueda es ideal, por ejemplo:
+        \begin{itemize}
+            \item \textbf{Busqueda binaria iterativa:} El elemento buscado esta exactamente en la mitad del array, por lo que se encuentra en la primera comparacion.
+            \item \textbf{Busqueda secuencial:} El elemento buscado esta en la primera posicion del array, por lo que se encuentra en la primera comparacion.
+            \item \textbf{Busqueda binaria para rangos:} Tanto el limite inferior como el superior se encuentran en la primera comparacion de sus respectivas busquedas.
+             Es decir, el limite inferior esta justo en el medio del arreglo y el elemento anterior a el es diferente, y el limite superior esta justo en el medio del arreglo y el elemento siguiente a el es diferente.
+             Por lo tanto, se encuentra ambos limites del rango en la primera comparacion de cada busqueda.
+             \item \textbf{Busqueda exponencial:} El elemento buscado esta en la primera posicion del array array[0], por lo que se encuentra en la primera comparacion.
+             \item \textbf{Busqueda por interpolacion:} El elemento buscado esta en la posicion estimada por la formula de interpolacion, por lo que se encuentra en la 
+             primera comparacion.
+        \end{itemize}
+        Debido a esto, al analziar el grafico se observa que todos los algoritmos comparten un rendimiento similar, pero tambien se pueden observar algunas fluctuaciones.
+        esto se debe a que al estar trabajando con tiempos de ejecucion tan bajos, incluso pequeñas variaciones en el sistema operativo, 
+        la carga de la computadora, etc, pueden afectar el tiempo de ejecucion.
+        Por lo tanto el resultado del grafico es consistente con lo que se espera teoricamente, ya que todos los algoritmos de busqueda tienen una complejidad 
+        de $O(1)$ en el mejor caso.
         
     \subsection{Peor caso}
         \begin{figure}[H]
@@ -577,6 +595,23 @@ mayores que este.
             \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva peor caso}
             \label{fig:busqueda-binaria-peor}
         \end{figure}
+        Teoricamente, para el peor caso las busquedas tienen la siguiente complejidad temporal:
+        \begin{itemize}
+            \item \textbf{Busqueda binaria iterativa:} $O(\log n)$
+            \item \textbf{Busqueda secuencial:} $O(n)$
+            \item \textbf{Busqueda binaria para rangos:} $O(\log n)$
+            \item \textbf{Busqueda exponencial:} $O(\log i)$
+            \item \textbf{Busqueda por interpolacion:} $O(n)$
+        \end{itemize}
+        Guiandonos por la teoria, se espera que la busqueda secuencial y la busqueda por interpolacion tengan tiempos de ejecucion mucho mayores que 
+        las otras busquedas, esto se debe a que ambas tienen una complejidad de $O(n)$ en el peor caso, lo que significa que el tiempo de ejecucion
+         crece linealmente con el tamaño del arreglo. Por otro lado, la busqueda binaria iterativa, la busqueda binaria para rangos y la busqueda exponencial 
+         tienen una complejidad de $O(\log n)$ o $O(\log i)$, lo que significa que el tiempo de ejecucion crece logaritmicamente con 
+         el tamaño del arreglo, lo que es mucho mas eficiente para grandes volumenes de datos. Al analizar el grafico se puede observar que la busqueda 
+         secuencial tiene tiempos de ejecucion significativamente mayores que las otras busquedas, 
+         lo cual es consistente con lo que se espera teoricamente, pero tambien se esperaria que la busqueda por interpolacion tenga tiempos
+         similares a la busqueda secuencial, pero en el grafico se puede observar que la busqueda por interpolacion tiene tiempos de ejecucion mucho menores que 
+         la busqueda secuencial.
 
     \subsection{Caso promedio}
         \begin{figure}[H]
@@ -585,6 +620,12 @@ mayores que este.
             \caption{Busqueda binaria iterativa vs Busqueda binaria recursiva caso promedio}
             \label{fig:busqueda-binaria-promedio}
         \end{figure}
+        Para el caso promedio, los resultados confirman que la búsqueda secuencial sigue siendo la opción menos eficiente, ya que su tiempo de respuesta aumenta 
+        de forma constante con el tamaño de los datos. por el contrario, la binaria, exponencial e interpolación demostraron un rendimiento superior y estable, 
+        manteniéndose cerca de los cero segundos. Esto demuestra que, en situaciones normales de uso, los algoritmos basados en divisiones o cálculos matemáticos 
+        (como la binaria) son drásticamente más rápidos que simplemente revisar los datos uno por uno.
+
+    
         
 
 \newpage
@@ -598,6 +639,12 @@ mayores que este.
             \label{fig:quick-select-comparativa}
         \end{figure}
 
+        Teoricamente para el algoritmo Quick Select, se espera que el peor caso tenga una complejidad de $O(n^2)$ y el mejor caso tenga una 
+        complejidad de $O(n)$. El mejor caso se daria cuando $k=n/2$ y el peor caso cuando k es muy pequeño o muy grande. Al analizar el grafico 
+        se puede observar que el peor caso tiene un tiempo de ejecucion mucho mayor que el mejor caso, lo cual es consistente con lo que se espera teoricamente. 
+        Pero no se puede observar una diferencia tan grande como se esperaria teoricamente, la brecha entre el mejor caso y el peor caso se ve menos pronunciada
+        debido a que se esta trabajando con tiempos de ejecucion bajos.
+
 
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
@@ -609,6 +656,10 @@ mayores que este.
             \caption{Tarea 1 vs Tarea 2 mejor caso}
             \label{fig:t1-vs-t2-mejor}
         \end{figure}
+        Al comparar los algoritmos de ambas tareas, el gráfico demuestra que los métodos de divide y vencerás (merge y quick sort) pertenecen a un orden de 
+        eficiencia superior. mientras que los algoritmos de la tarea 1 muestran un crecimiento notable en el tiempo de ejecución incluso para datos pequeños, 
+        los de la tarea 2 mantienen un rendimiento óptimo y veloz. la brecha de tiempo es tan grande que solo mediante una escala logarítmica es posible apreciar 
+        ambos grupos en una misma imagen.
 
     \subsection{Peor caso}
         \begin{figure}[H]
@@ -617,6 +668,12 @@ mayores que este.
             \caption{Tarea 1 vs Tarea 2 peor caso}
             \label{fig:t1-vs-t2-peor}
         \end{figure}
+        Aunque es el peor escenario, la diferencia entre los "dos mundos" sigue siendo clara. Los algoritmos de la Tarea 2 (Merge y Quick Sort) 
+        se mantienen en la franja media-baja, demostrando que su estrategia de dividir el problema los protege de la lentitud extrema.\\
+        En este gráfico, la línea roja (Selection) se dispara como la más lenta. Esto confirma que, ante datos desfavorables, los algoritmos de fuerza 
+        bruta sufren mucho más, ya que deben realizar comparaciones exhaustivas sin ninguna optimización.\\
+        Se observa que la línea rosada (Merge) es muy estable. A diferencia de otros que varían según el orden de los datos, el "divide y vencerás" 
+        de Merge Sort garantiza un rendimiento predecible incluso en las peores condiciones.
 
     \subsection{Caso promedio}
         \begin{figure}[H]
@@ -625,6 +682,13 @@ mayores que este.
             \caption{Tarea 1 vs Tarea 2 caso promedio}
             \label{fig:t1-vs-t2-promedio}
         \end{figure}
+        Se observa claramente que Merge Sort y Quick Sort forman un bloque en la parte inferior del gráfico. Esto confirma que, estadísticamente, 
+        dividir el problema es la forma más eficiente de trabajar, logrando tiempos mucho menores que cualquier algoritmo de la Tarea 1.\\
+        En este escenario, los algoritmos de fuerza bruta se separan: Bubble y Cocktail Sort son los más lentos (arriba), seguidos por Insertion y 
+        Selection Sort en una franja media. Todos mantienen una pendiente ascendente mucho más pronunciada que los algoritmos de la Tarea 2.\\
+        Mientras que los algoritmos de la Tarea 1 suben rápidamente de tiempo al pasar de 1.000 a 5.000 datos, las líneas de la Tarea 2 crecen de forma casi horizontal. 
+        Esto demuestra que son mucho más aptos para manejar volúmenes de datos crecientes.
+
 \newpage
 %-----------------------------------------------------------------------------------------------------------------------------------%
 \section{Decisiones del codigo}
@@ -652,12 +716,26 @@ grupos pequeños y resolverlos de forma directa eliminando trámites internos de
  elección del pivote pues las variantes aleatoria y de mediana de tres funcionan como un seguro de velocidad que evita que el programa se bloquee ante datos
   difíciles logrando que a gran escala estas pequeñas mejoras estratégicas marquen la diferencia entre una ejecución instantánea y una extremadamente lenta lo 
   que confirma que los mejores resultados se obtienen cuando se combina la potencia de los métodos avanzados con la flexibilidad de simplificar los pasos finales 
-  del proceso.
-
+  del proceso.\\
+Al revisar nuestros resultados, detectamos que incluimos la búsqueda secuencial en lugar de la binaria recursiva. Aunque fue un error de implementación, 
+el gráfico terminó siendo muy revelador: nos permitió ver de forma clara cómo la búsqueda secuencial se vuelve pesada y lenta a medida que aumentan los datos, 
+mientras que los otros métodos (como la binaria o la exponencial) ni siquiera se inmutan y siguen siendo igual de rápidos.
+Al final, este error confirmó por las malas lo que dice la teoría: no todos los métodos de búsqueda son iguales, y elegir el equivocado puede hacer que un 
+programa pase de ser instantáneo a tardar mucho más de lo necesario.\\
+Para el algoritmo de seleccion Quick select, se logro verificar mediante la grafica que se comporta como se esperaria teoricamente, sin embargo esperabamos que la 
+diferencia entre ambos casos fuera mas notoria, pero producto de la escala utilziada y de los tiempos reducidos no re vio reflejado como se esperaria.\\
+Al comparar los algoritmos de 'fuerza bruta' (Tarea 1) con los de 'divide y vencerás' (Tarea 2), la diferencia de rendimiento es drástica. En el mejor caso, 
+se observa que Merge Sort y Quick Sort operan en una liga completamente diferente, procesando los datos de forma casi instantánea mientras que los algoritmos de 
+la Tarea 1 ya muestran signos de lentitud.
+En el peor caso, la ventaja del 'divide y vencerás' se vuelve aún más crítica. Mientras que algoritmos como Selection Sort aumentan sus tiempos
+de ejecucion, los algoritmos de la Tarea 2 mantienen la estabilidad. Esto demuestra que, para grandes volúmenes de datos, el enfoque de dividir el problema no 
+es solo una mejora, sino una necesidad para garantizar que el sistema no se bloquee ante datos desordenados o difíciles. Y tambien otorgan estabilidad.
 
 %----------------------------------------------------------
 \newpage
 \section{Contribuciones}
+El desarrollo del trabajo se realizo de manera colaborativa, cada integrante del grupo participo en el desarrollo del codigo, 
+ejecucion de pruebas experimentales y redaccion del informe, a continuacion se detallan las contribuciones de cada integrante:
 \begin{itemize}
     \item Felipe Paillacar: Desarrollo de código, ejecución de pruebas experimentales y redacción del informe.  
     \item Guillermo Vargas: Desarrollo de código, ejecución de pruebas experimentales y redacción del informe.

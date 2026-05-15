@@ -37,16 +37,16 @@
 \contentsline {subsubsection}{\numberline {7.2.3}Caso promedio}{15}{subsubsection.7.2.3}%
 \contentsline {section}{\numberline {8}Analisis de casos: busquedas}{17}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Mejor caso}{17}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Peor caso}{17}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Caso promedio}{18}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Analisis de casos: Quick select}{19}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Comparativa de casos}{19}{subsection.9.1}%
-\contentsline {section}{\numberline {10}Analisis de casos: tarea 1 vs tarea 2}{20}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Mejor caso}{20}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Peor caso}{20}{subsection.10.2}%
-\contentsline {subsection}{\numberline {10.3}Caso promedio}{21}{subsection.10.3}%
-\contentsline {section}{\numberline {11}Decisiones del codigo}{22}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Ranking}{22}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Conclusion}{23}{section.12}%
-\contentsline {section}{\numberline {13}Contribuciones}{24}{section.13}%
+\contentsline {subsection}{\numberline {8.2}Peor caso}{18}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Caso promedio}{19}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Analisis de casos: Quick select}{20}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Comparativa de casos}{20}{subsection.9.1}%
+\contentsline {section}{\numberline {10}Analisis de casos: tarea 1 vs tarea 2}{21}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Mejor caso}{21}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Peor caso}{21}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Caso promedio}{22}{subsection.10.3}%
+\contentsline {section}{\numberline {11}Decisiones del codigo}{23}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Ranking}{23}{subsection.11.1}%
+\contentsline {section}{\numberline {12}Conclusion}{24}{section.12}%
+\contentsline {section}{\numberline {13}Contribuciones}{25}{section.13}%
 \contentsfinish 

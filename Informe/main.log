@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.14)  15 MAY 2026 02:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.5.14)  15 MAY 2026 11:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2017,7 +2017,17 @@ LaTeX Font Info:    Calculating math sizes for size <5.24997> on input line 52.
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.07497pt on input line 52.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8.5> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 52.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.07497pt on input line 52.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7.8> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 52.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 7.40997pt on input line 52.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 7.40997pt on input line 52.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 7.40997pt on input line 52.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.49997pt on input line 53.
@@ -2043,7 +2053,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.64998pt on input line 42.
+(Font)              scaled to size 6.64998pt on input line 41.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
@@ -2054,26 +2064,26 @@ tix2-type1/stix2-mathrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix
 \openout5 = `main.toc'.
 
  [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 67--72
+Underfull \hbox (badness 10000) in paragraph at lines 69--74
 
  []
 
 [4]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 98.
+(Font)              scaled to size 7.59998pt on input line 100.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <8> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 98.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 100.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 7.59998pt on input line 98.
-<figures/caption1.png, id=188, 469.00218pt x 264.23718pt>
+(Font)              scaled to size 7.59998pt on input line 100.
+<figures/caption1.png, id=189, 469.00218pt x 264.23718pt>
 File: figures/caption1.png Graphic file (type png)
 <use figures/caption1.png>
-Package pdftex.def Info: figures/caption1.png  used on input line 106.
+Package pdftex.def Info: figures/caption1.png  used on input line 108.
 (pdftex.def)             Requested size: 217.26193pt x 122.40533pt.
  [5{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathit.enc}
  <./figures/caption1.png>]
 LaTeX Font Info:    Trying to load font information for TS1+stix2 on input line
- 147.
+ 149.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix2-type1/ts1stix2.fd
 File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
@@ -2081,131 +2091,131 @@ File: ts1stix2.fd 2018/04/02 v2.0.0-latex stix2 TS1 font definitions
 Package microtype Info: Character `textflorin ' is missing
 (microtype)             in font `TS1/stix2/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
-<figures/caption2.png, id=199, 749.04843pt x 370.38374pt>
+<figures/caption2.png, id=200, 749.04843pt x 370.38374pt>
 File: figures/caption2.png Graphic file (type png)
 <use figures/caption2.png>
-Package pdftex.def Info: figures/caption2.png  used on input line 167.
+Package pdftex.def Info: figures/caption2.png  used on input line 169.
 (pdftex.def)             Requested size: 217.26193pt x 107.43114pt.
-<figures/caption3.png, id=201, 728.7225pt x 329.73187pt>
+<figures/caption3.png, id=202, 728.7225pt x 329.73187pt>
 File: figures/caption3.png Graphic file (type png)
 <use figures/caption3.png>
-Package pdftex.def Info: figures/caption3.png  used on input line 191.
+Package pdftex.def Info: figures/caption3.png  used on input line 193.
 (pdftex.def)             Requested size: 217.26193pt x 98.30649pt.
  [6{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-ts1.enc} <.
 /figures/caption2.png> <./figures/caption3.png>] [7]
-<figures/caption4.png, id=219, 328.22626pt x 335.75438pt>
+<figures/caption4.png, id=220, 328.22626pt x 335.75438pt>
 File: figures/caption4.png Graphic file (type png)
 <use figures/caption4.png>
-Package pdftex.def Info: figures/caption4.png  used on input line 221.
+Package pdftex.def Info: figures/caption4.png  used on input line 223.
 (pdftex.def)             Requested size: 162.95059pt x 166.68819pt.
  [8{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix2-type1/stix2-mathscr.enc
 } <./figures/caption4.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 301--305
+Underfull \hbox (badness 10000) in paragraph at lines 303--307
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--334
+Underfull \hbox (badness 10000) in paragraph at lines 332--336
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 335--341
+Underfull \hbox (badness 10000) in paragraph at lines 337--343
 
  []
 
 
 LaTeX Warning: Reference `sssec:complejidad-busqueda-binaria' on page 10 undefi
-ned on input line 374.
+ned on input line 376.
 
 [10] [11] [12]
-<figures/merge-comparativa-mejor.png, id=257, 903.375pt x 602.25pt>
+<figures/merge-comparativa-mejor.png, id=258, 903.375pt x 602.25pt>
 File: figures/merge-comparativa-mejor.png Graphic file (type png)
 <use figures/merge-comparativa-mejor.png>
 Package pdftex.def Info: figures/merge-comparativa-mejor.png  used on input lin
-e 481.
+e 483.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/merge-comparativa-peor.png, id=258, 903.375pt x 602.25pt>
+<figures/merge-comparativa-peor.png, id=259, 903.375pt x 602.25pt>
 File: figures/merge-comparativa-peor.png Graphic file (type png)
 <use figures/merge-comparativa-peor.png>
 Package pdftex.def Info: figures/merge-comparativa-peor.png  used on input line
- 494.
+ 496.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
  [13 <./figures/merge-comparativa-mejor.png> <./figures/merge-comparativa-peor.
 png>]
-<figures/merge-comparativa-promedio.png, id=267, 903.375pt x 602.25pt>
+<figures/merge-comparativa-promedio.png, id=268, 903.375pt x 602.25pt>
 File: figures/merge-comparativa-promedio.png Graphic file (type png)
 <use figures/merge-comparativa-promedio.png>
 Package pdftex.def Info: figures/merge-comparativa-promedio.png  used on input 
-line 508.
+line 510.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/quick-sort-mejor.png, id=268, 903.375pt x 602.25pt>
+<figures/quick-sort-mejor.png, id=269, 903.375pt x 602.25pt>
 File: figures/quick-sort-mejor.png Graphic file (type png)
 <use figures/quick-sort-mejor.png>
-Package pdftex.def Info: figures/quick-sort-mejor.png  used on input line 524.
+Package pdftex.def Info: figures/quick-sort-mejor.png  used on input line 526.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
  [14 <./figures/merge-comparativa-promedio.png> <./figures/quick-sort-mejor.png
 >]
-<figures/quick-sort-peor.png, id=276, 903.375pt x 602.25pt>
+<figures/quick-sort-peor.png, id=277, 903.375pt x 602.25pt>
 File: figures/quick-sort-peor.png Graphic file (type png)
 <use figures/quick-sort-peor.png>
-Package pdftex.def Info: figures/quick-sort-peor.png  used on input line 537.
+Package pdftex.def Info: figures/quick-sort-peor.png  used on input line 539.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/quick-sort-promedio.png, id=277, 903.375pt x 602.25pt>
+<figures/quick-sort-promedio.png, id=278, 903.375pt x 602.25pt>
 File: figures/quick-sort-promedio.png Graphic file (type png)
 <use figures/quick-sort-promedio.png>
 Package pdftex.def Info: figures/quick-sort-promedio.png  used on input line 55
-0.
+2.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
  [15 <./figures/quick-sort-peor.png> <./figures/quick-sort-promedio.png>] [16]
-<figures/busquedas-mejor.png, id=290, 903.375pt x 602.25pt>
+<figures/busquedas-mejor.png, id=291, 903.375pt x 602.25pt>
 File: figures/busquedas-mejor.png Graphic file (type png)
 <use figures/busquedas-mejor.png>
-Package pdftex.def Info: figures/busquedas-mejor.png  used on input line 568.
+Package pdftex.def Info: figures/busquedas-mejor.png  used on input line 570.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/busquedas-peor.png, id=291, 903.375pt x 602.25pt>
+<figures/busquedas-peor.png, id=292, 903.375pt x 602.25pt>
 File: figures/busquedas-peor.png Graphic file (type png)
 <use figures/busquedas-peor.png>
-Package pdftex.def Info: figures/busquedas-peor.png  used on input line 576.
+Package pdftex.def Info: figures/busquedas-peor.png  used on input line 594.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/busquedas-promedio.png, id=292, 903.375pt x 602.25pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17 <./figures/busquedas-mejor.png>]
+<figures/busquedas-promedio.png, id=299, 903.375pt x 602.25pt>
 File: figures/busquedas-promedio.png Graphic file (type png)
 <use figures/busquedas-promedio.png>
-Package pdftex.def Info: figures/busquedas-promedio.png  used on input line 584
+Package pdftex.def Info: figures/busquedas-promedio.png  used on input line 619
 .
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [17 <./figures/busquedas-mejor.png> <./figures/busquedas-peor.png>] [18 <./fig
-ures/busquedas-promedio.png>]
-<figures/quick-select-comparativa.png, id=306, 903.375pt x 602.25pt>
+ [18 <./figures/busquedas-peor.png>] [19 <./figures/busquedas-promedio.png>]
+<figures/quick-select-comparativa.png, id=313, 903.375pt x 602.25pt>
 File: figures/quick-select-comparativa.png Graphic file (type png)
 <use figures/quick-select-comparativa.png>
 Package pdftex.def Info: figures/quick-select-comparativa.png  used on input li
-ne 596.
+ne 637.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
- [19 <./figures/quick-select-comparativa.png>]
-<figures/t1-t2-mejor.png, id=314, 903.375pt x 602.25pt>
+ [20 <./figures/quick-select-comparativa.png>]
+<figures/t1-t2-mejor.png, id=320, 903.375pt x 602.25pt>
 File: figures/t1-t2-mejor.png Graphic file (type png)
 <use figures/t1-t2-mejor.png>
-Package pdftex.def Info: figures/t1-t2-mejor.png  used on input line 608.
+Package pdftex.def Info: figures/t1-t2-mejor.png  used on input line 655.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/t1-t2-peor.png, id=315, 903.375pt x 602.25pt>
+<figures/t1-t2-peor.png, id=321, 903.375pt x 602.25pt>
 File: figures/t1-t2-peor.png Graphic file (type png)
 <use figures/t1-t2-peor.png>
-Package pdftex.def Info: figures/t1-t2-peor.png  used on input line 616.
+Package pdftex.def Info: figures/t1-t2-peor.png  used on input line 667.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-<figures/t1-t2-promedio.png, id=316, 903.375pt x 602.25pt>
+<figures/t1-t2-promedio.png, id=322, 903.375pt x 602.25pt>
 File: figures/t1-t2-promedio.png Graphic file (type png)
 <use figures/t1-t2-promedio.png>
-Package pdftex.def Info: figures/t1-t2-promedio.png  used on input line 624.
+Package pdftex.def Info: figures/t1-t2-promedio.png  used on input line 681.
 (pdftex.def)             Requested size: 325.90118pt x 217.2693pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [20 <./figures/t1-t2-mejor.png> <./figures/t1-t2-peor.png>] [21 <./figures/t1-
-t2-promedio.png>] [22] [23] [24] [25]
+ [21 <./figures/t1-t2-mejor.png> <./figures/t1-t2-peor.png>] [22 <./figures/t1-
+t2-promedio.png>] [23] [24] [25] [26]
 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./main.aux
@@ -2226,24 +2236,25 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 68975 strings out of 476047
- 1499696 string characters out of 5792075
- 2610527 words of memory out of 5000000
- 89780 multiletter control sequences out of 15000+600000
- 744210 words of font info for 305 fonts, out of 8000000 for 9000
+ 69028 strings out of 476047
+ 1500407 string characters out of 5792075
+ 2610598 words of memory out of 5000000
+ 89793 multiletter control sequences out of 15000+600000
+ 768177 words of font info for 330 fonts, out of 8000000 for 9000
  85 hyphenation exceptions out of 8191
- 137i,13n,143p,1086b,2347s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 137i,13n,143p,1086b,2345s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Math.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Bold.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Italic
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix2-type1/STIX2Text-Re
 gular.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (25 pages, 1887908 bytes).
+exlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on main.pdf (26 pages, 1903082 bytes).
 PDF statistics:
- 609 PDF objects out of 1000 (max. 8388607)
- 487 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 74231 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 619 PDF objects out of 1000 (max. 8388607)
+ 494 compressed objects within 5 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 88567 words of extra memory for PDF output out of 89155 (max. 10000000)
 
