@@ -1,8 +1,17 @@
+/**
+ * @file main.c
+ * @brief Punto de entrada principal para el menú de prueba de todo el sistema.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include "algoritmos.h"
 
+/**
+ * @brief Inicializa un arreglo de deportistas con datos pseudoaleatorios.
+ * @param arr Arreglo de deportistas a inicializar.
+ * @param n Cantidad de elementos a generar internamente.
+ */
 void generarDatosSistema(Deportista arr[], int n) {
     for (int i = 0; i < n; i++) {
         arr[i].id = i + 1;
@@ -12,6 +21,10 @@ void generarDatosSistema(Deportista arr[], int n) {
     }
 }
 
+/**
+ * @brief Función principal que lanza el sistema interactivo de comprobación algorítmica.
+ * @return Estado en que ha finalizado el loop.
+ */
 int main() {
     srand(time(NULL));
     int num_deportistas = 1000;

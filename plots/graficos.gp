@@ -237,32 +237,51 @@ set logscale y
 set ylabel "Tiempo promedio (s)  [escala log]"
 
 # ── G11: peor caso ────────────────────────────────────────────
-set output "plots/g11_busqueda_peor_caso.png"
-set title  "G11 – Algoritmos de búsqueda\n(peor caso) — escala logarítmica"
+set output 'plots/g11_busqueda_peor_caso.png'
+set title "G11: Análisis de Búsquedas - Peor Caso"
+set ylabel "Tiempo (segundos)"
+# Si quieres ver cómo sube la Secuencial y las otras se quedan abajo, asegúrate de que logscale esté desactivado
+unset logscale y 
+set autoscale y
 
-plot DATA_BUS \
-     using 1:(stringcolumn(2) eq "peor" ? $3 : 1/0) title "Secuencial (T1)"     with linespoints ls 1, \
-     ""   using 1:(stringcolumn(2) eq "peor" ? $4 : 1/0) title "Binaria iter. (T1)" with linespoints ls 2, \
-     ""   using 1:(stringcolumn(2) eq "peor" ? $5 : 1/0) title "Binaria rec."       with linespoints ls 3, \
-     ""   using 1:(stringcolumn(2) eq "peor" ? $6 : 1/0) title "Binaria rangos"     with linespoints ls 4, \
-     ""   using 1:(stringcolumn(2) eq "peor" ? $7 : 1/0) title "Exponencial"        with linespoints ls 5, \
-     ""   using 1:(stringcolumn(2) eq "peor" ? $8 : 1/0) title "Interpolación"      with linespoints ls 6
+plot "< awk -F, '$2==\"peor\"' data/g11_g12_busqueda.csv" using 1:3 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'red' title 'Secuencial O(n)', \
+     "< awk -F, '$2==\"peor\"' data/g11_g12_busqueda.csv" using 1:4 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'blue' title 'Binaria Iter O(log n)', \
+     "< awk -F, '$2==\"peor\"' data/g11_g12_busqueda.csv" using 1:7 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'orange' title 'Exponencial', \
+     "< awk -F, '$2==\"peor\"' data/g11_g12_busqueda.csv" using 1:8 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'purple' title 'Interpolación'
 
 print "✓ G11 plots/g11_busqueda_peor_caso.png  [log Y]"
 
 # ── G12: caso promedio ────────────────────────────────────────
-set output "plots/g12_busqueda_promedio.png"
-set title  "G12 – Algoritmos de búsqueda\n(caso promedio) — escala logarítmica"
+set output 'plots/g12_busqueda_promedio.png'
+set title "G12: Análisis de Búsquedas - Caso Promedio"
+set ylabel "Tiempo (segundos)"
+unset logscale y
+set autoscale y
 
-plot DATA_BUS \
-     using 1:(stringcolumn(2) eq "promedio" ? $3 : 1/0) title "Secuencial (T1)"     with linespoints ls 1, \
-     ""   using 1:(stringcolumn(2) eq "promedio" ? $4 : 1/0) title "Binaria iter. (T1)" with linespoints ls 2, \
-     ""   using 1:(stringcolumn(2) eq "promedio" ? $5 : 1/0) title "Binaria rec."       with linespoints ls 3, \
-     ""   using 1:(stringcolumn(2) eq "promedio" ? $6 : 1/0) title "Binaria rangos"     with linespoints ls 4, \
-     ""   using 1:(stringcolumn(2) eq "promedio" ? $7 : 1/0) title "Exponencial"        with linespoints ls 5, \
-     ""   using 1:(stringcolumn(2) eq "promedio" ? $8 : 1/0) title "Interpolación"      with linespoints ls 6
+plot "< awk -F, '$2==\"promedio\"' data/g11_g12_busqueda.csv" using 1:3 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'red' title 'Secuencial O(n)', \
+     "< awk -F, '$2==\"promedio\"' data/g11_g12_busqueda.csv" using 1:4 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'blue' title 'Binaria Iter O(log n)', \
+     "< awk -F, '$2==\"promedio\"' data/g11_g12_busqueda.csv" using 1:7 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'orange' title 'Exponencial', \
+     "< awk -F, '$2==\"promedio\"' data/g11_g12_busqueda.csv" using 1:8 with linespoints pt 7 ps 1.5 lw 2 lc rgb 'purple' title 'Interpolación'
 
 print "✓ G12 plots/g12_busqueda_promedio.png  [log Y]"
+
+# G14 - Búsqueda (Mejor Caso)
+# ==========================================
+unset logscale y 
+set output 'plots/g14_busqueda_mejor_caso.png'
+set title "G14: Análisis de Búsquedas - Mejor Caso O(1)"
+set ylabel "Tiempo (segundos)"
+set autoscale y
+set yrange [-0.000001 : 0.000005]  # Rango microscópico para ver el O(1) claramente
+set key top right
+set style data linespoints
+
+plot "< awk -F, '$2==\"mejor\"' data/g11_g12_busqueda.csv" using 1:3 pt 7 ps 1.5 lw 2 lc rgb 'red' title 'Secuencial O(1)', \
+     "< awk -F, '$2==\"mejor\"' data/g11_g12_busqueda.csv" using 1:4 pt 7 ps 1.5 lw 2 lc rgb 'blue' title 'Binaria O(1)', \
+     "< awk -F, '$2==\"mejor\"' data/g11_g12_busqueda.csv" using 1:7 pt 7 ps 1.5 lw 2 lc rgb 'orange' title 'Exponencial O(1)', \
+     "< awk -F, '$2==\"mejor\"' data/g11_g12_busqueda.csv" using 1:8 pt 7 ps 1.5 lw 2 lc rgb 'purple' title 'Interpolación O(1)'
+
+print "✓ G14 plots/g14_busqueda_mejor_caso.png"
 
 # ══════════════════════════════════════════════════════════════
 # G13 — Quick Select: mejor caso vs peor caso

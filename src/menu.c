@@ -1,3 +1,8 @@
+/**
+ * @file menu.c
+ * @brief Control del menú interactivo en consola para el sistema.
+ * Orquesta el flujo de ejecución completo permitiendo pruebas y simulaciones de usuario.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -31,7 +36,9 @@ void mostrar_menu_tarea2();
 
 // --- Funciones de utilidad para la interfaz ---
 
-// Limpia la consola (compatible con Windows y Linux/macOS)
+/**
+ * @brief Limpia la consola detectando dinámicamente si es Windows o UNIX-like.
+ */
 void limpiar_pantalla() {
 #ifdef _WIN32
     system("cls");
@@ -40,7 +47,9 @@ void limpiar_pantalla() {
 #endif
 }
 
-// Pausa la ejecución hasta que el usuario presione Enter
+/**
+ * @brief Detiene la ejecución y espera una confirmación "Enter" del usuario.
+ */
 void pausar_pantalla() {
     printf("\nPresione Enter para continuar...");
     // Limpia el buffer de entrada para evitar problemas con scanf
@@ -50,6 +59,9 @@ void pausar_pantalla() {
 
 // --- Implementación de los submenús ---
 
+/**
+ * @brief Imprime en pantalla una vista preliminar (límite de 50) de los datos que posee el programa en RAM actualmente.
+ */
 void mostrar_datos_memoria() {
     if (cantidad_actual == 0) {
         printf("\nNo hay datos cargados en memoria.\n");
@@ -66,6 +78,9 @@ void mostrar_datos_memoria() {
     pausar_pantalla();
 }
 
+/**
+ * @brief Despliega y gestiona las operaciones del submenú para manejo masivo de carga y creación de CSVs.
+ */
 void mostrar_submenu_datos() {
     int opcion;
     int nueva_cant;
@@ -146,6 +161,9 @@ void mostrar_submenu_datos() {
     } while (opcion != 7);
 }
 
+/**
+ * @brief Despliega y gestiona las variaciones posibles de algoritmo "Merge Sort" de forma aislada.
+ */
 void mostrar_submenu_mergesort() {
     int opcion;
     do {
@@ -213,6 +231,9 @@ void mostrar_submenu_mergesort() {
     } while (opcion != 4);
 }
 
+/**
+ * @brief Despliega y gestiona las pruebas relativas exclusivamente al algoritmo de "Quick Sort".
+ */
 void mostrar_submenu_quicksort() {
     int opcion;
     do {
@@ -267,6 +288,9 @@ void mostrar_submenu_quicksort() {
     } while (opcion != 6);
 }
 
+/**
+ * @brief Punto de entrada para el menú de ordenamientos O(n log n).
+ */
 void mostrar_submenu_ordenamiento() {
     int opcion;
     do {
@@ -300,6 +324,9 @@ void mostrar_submenu_ordenamiento() {
     } while (opcion != 4);
 }
 
+/**
+ * @brief Despliega las opciones del módulo de búsqueda para su evaluación interactiva.
+ */
 void mostrar_submenu_busqueda() {
     int opcion;
     int id_buscar;
@@ -399,6 +426,9 @@ void mostrar_submenu_busqueda() {
     } while (opcion != 6);
 }
 
+/**
+ * @brief Genera vistas top-ranking utilizando selectores eficientes en O(n) como QuickSelect.
+ */
 void mostrar_submenu_ranking() {
     int opcion;
     do {
@@ -467,6 +497,9 @@ void mostrar_submenu_ranking() {
     } while (opcion != 4);
 }
 
+/**
+ * @brief Puente retroactivo a los algoritmos O(n^2) del Proyecto I.
+ */
 void mostrar_submenu_ordenamiento_t1() {
     int opcion;
     do {
@@ -513,6 +546,9 @@ void mostrar_submenu_ordenamiento_t1() {
     } while (opcion != 6);
 }
 
+/**
+ * @brief Submenú especial para algoritmos de búsqueda Tarea 1.
+ */
 void mostrar_submenu_busqueda_t1() {
     int opcion;
     int id_buscar;
@@ -570,6 +606,9 @@ void mostrar_submenu_busqueda_t1() {
     } while (opcion != 4);
 }
 
+/**
+ * @brief Renderiza el primer ciclo completo de experimentación de algoritmos cuadráticos.
+ */
 void mostrar_menu_tarea1() {
     int opcion;
     do {
@@ -593,6 +632,9 @@ void mostrar_menu_tarea1() {
     } while (opcion != 4);
 }
 
+/**
+ * @brief Renderiza el ciclo de experimentación basado en divide y vencerás del Proyecto II.
+ */
 void mostrar_menu_tarea2() {
     int opcion;
     do {
@@ -618,6 +660,9 @@ void mostrar_menu_tarea2() {
     } while (opcion != 5);
 }
 
+/**
+ * @brief Root master: Lanza el bucle interactivo principal de la aplicación CLI.
+ */
 void iniciar_menu() {
     // Inicializar la semilla para los números aleatorios
     srand(time(NULL));

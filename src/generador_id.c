@@ -1,3 +1,7 @@
+/**
+ * @file generador_id.c
+ * @brief Utilería aislada para la demostración y generación de IDs autoincrementales sin solapamiento.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +11,10 @@ typedef struct {
     // Aquí irán los demás campos: nombre, equipo, puntaje, competencias
 } Deportista;
 
-// Función que crea un deportista y le asigna un ID único y autoincremental
+/**
+ * @brief Crea un deportista y le asigna un ID auto-incrementable a nivel global utilizando variables estáticas locales.
+ * @return Devuelve un deportista nuevo con su ID preparado.
+ */
 Deportista generar_deportista_con_id() {
     // La variable estática conserva su valor entre las distintas llamadas a la función
     static int contador_id = 1;
@@ -18,4 +25,3 @@ Deportista generar_deportista_con_id() {
     
     return nuevo_deportista;
 }
-

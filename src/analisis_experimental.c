@@ -501,6 +501,39 @@ void experimento_G11_G12(FILE *f) {
                     n, PROM(a_seq), PROM(a_bi), PROM(a_br),
                     PROM(a_brng), PROM(a_exp), PROM(a_int));
         }
+
+        /* --- MEJOR CASO --- */
+        {
+            double a_seq=0, a_bi=0, a_br=0, a_brng=0, a_exp=0, a_int=0;
+            for (int r = 0; r < REPETICIONES; r++) {
+                /* Para Secuencial, Exponencial e Interpolación, el mejor caso O(1) es el índice 0 */
+                int target_mejor_ext = arr[0].puntaje;
+                /* Para Binaria, el mejor caso O(1) ocurre si acierta al medio en la primera división */
+                int target_mejor_bin = arr[(n-1)/2].puntaje;
+                clock_t t0;
+
+                t0 = clock(); busquedaSecuencial(arr, n, target_mejor_ext);
+                a_seq  += seg(t0, clock());
+
+                t0 = clock(); busquedaBinariaIterativa(arr, 0, n-1, target_mejor_bin);
+                a_bi   += seg(t0, clock());
+
+                t0 = clock(); busquedaBinariaRecursiva(arr, 0, n-1, target_mejor_bin);
+                a_br   += seg(t0, clock());
+
+                t0 = clock(); busquedaBinariaRangos(arr, n, target_mejor_bin, &primero, &ultimo);
+                a_brng += seg(t0, clock());
+
+                t0 = clock(); busquedaExponencial(arr, n, target_mejor_ext);
+                a_exp  += seg(t0, clock());
+
+                t0 = clock(); busquedaInterpolacion(arr, n, target_mejor_ext);
+                a_int  += seg(t0, clock());
+            }
+            fprintf(f, "%d,mejor,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f\n",
+                    n, PROM(a_seq), PROM(a_bi), PROM(a_br),
+                    PROM(a_brng), PROM(a_exp), PROM(a_int));
+        }
     }
     free(arr);
     printf("  G11-G12 OK\n");
