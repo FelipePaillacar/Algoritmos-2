@@ -4,8 +4,8 @@ CFLAGS = -Wall -Wextra -std=c99 -Iinclude
 all: sistema tester
 
 # Programa interactivo para el Estudiante 1 (Aplicacion Practica)
-sistema: src/main.c src/algoritmos.c
-	$(CC) $(CFLAGS) -o sistema src/main.c src/algoritmos.c
+sistema: src/main.c src/deportista.c src/ordenamiento_divide.c src/busqueda_divide.c
+	$(CC) $(CFLAGS) -o sistema src/main.c src/deportista.c src/ordenamiento_divide.c src/busqueda_divide.c
 
 # Programa automatizado para el Estudiante 2 (Medicion de Tiempos)
 tester: src/analisis_experimental.c src/algoritmos.c

@@ -1,187 +1,212 @@
 /**
  * @file main.c
- * @brief Punto de entrada principal para el menú de prueba de todo el sistema.
+ * @brief Punto de entrada principal con selección de campo y validaciones mejoradas.
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "algoritmos.h"
+#include "deportista.h"
+#include "ordenamiento_divide.h"
+#include "busqueda_divide.h"
 
 /**
- * @brief Inicializa un arreglo de deportistas con datos pseudoaleatorios.
- * @param arr Arreglo de deportistas a inicializar.
- * @param n Cantidad de elementos a generar internamente.
+ * @brief Función para que el usuario elija qué atributo usar para la operación.
  */
-void generarDatosSistema(Deportista arr[], int n) {
+int solicitarCampo() {
+    int campo;
+    printf("\nSeleccione el atributo:\n");
+    printf("1. ID\n");
+    printf("2. Nombre\n");
+    printf("3. Equipo\n");
+    printf("4. Puntaje\n");
+    printf("5. Competencias\n");
+    printf("Campo: ");
+    if (scanf("%d", &campo) != 1 || campo < 1 || campo > 5) {
+        printf("Campo no valido. Se usara 'Puntaje' por defecto.\n");
+        while(getchar() != '\n'); 
+        return 4; // Default: Puntaje
+    }
+    return campo;
+}
+
+void cargarDatosAleatorios(Deportista arr[], int n) {
+    reiniciar_generador_id();
     for (int i = 0; i < n; i++) {
-        arr[i].id = i + 1;
-        sprintf(arr[i].nombre, "Deportista%d", i + 1);
-        arr[i].edad = 18 + rand() % 20;
-        arr[i].puntaje = rand() % 1001;
+        arr[i] = generar_deportista();
     }
 }
 
-/**
- * @brief Función principal que lanza el sistema interactivo de comprobación algorítmica.
- * @return Estado en que ha finalizado el loop.
- */
 int main() {
     srand(time(NULL));
     int num_deportistas = 1000;
     Deportista* sistema = (Deportista*)malloc(num_deportistas * sizeof(Deportista));
     int opcion;
 
+    if (sistema == NULL) return 1;
+
     do {
-        generarDatosSistema(sistema, num_deportistas); // Recargamos los miles de datos
+        // Se cargan datos al inicio o cuando se cambia la cantidad
+        cargarDatosAleatorios(sistema, num_deportistas);
         
         printf("\n=== SISTEMA DE DEPORTISTAS (PROYECTO 2) ===\n");
         printf("1. Cambiar cantidad de deportistas (Actual: %d)\n", num_deportistas);
-        printf("2. Ordenar datos por puntaje (MergeSort)\n");
-        printf("3. Ordenar datos por puntaje (QuickSort - Pivote Mediana 3)\n");
-        printf("4. Encontrar el K-esimo mejor deportista (QuickSelect)\n");
-        printf("5. Top N mejores deportistas\n");
-        printf("6. Buscar deportistas por puntaje exacto (Rango Binario)\n");
-        printf("7. Buscar puntaje exacto (Busqueda Exponencial)\n");
-        printf("8. Buscar puntaje exacto (Busqueda Interpolacion)\n");
+        printf("2. Ordenar datos (MergeSort Optimizado)\n");
+        printf("3. Ordenar datos (QuickSort - Pivote Mediana)\n");
+        printf("4. Encontrar el K-esimo deportista (QuickSelect)\n");
+        printf("5. Ver Top N Ranking\n");
+        printf("6. Buscar por rango de puntaje (Busqueda Binaria)\n"); // Título corregido
+        printf("7. Buscar por ID (Busqueda Exponencial)\n");
+        printf("8. Buscar por ID (Busqueda Interpolacion)\n");
         printf("9. Salir\n");
         printf("Seleccione una opcion: ");
-        scanf("%d", &opcion);
+
+        if (scanf("%d", &opcion) != 1) {
+            while(getchar() != '\n');
+            continue;
+        }
 
         switch(opcion) {
             case 1: {
                 int nueva_cantidad;
-                printf("Ingrese la nueva cantidad de deportistas: ");
-                scanf("%d", &nueva_cantidad);
-                if (nueva_cantidad > 0) {
+                printf("Ingrese la nueva cantidad: ");
+                if (scanf("%d", &nueva_cantidad) == 1 && nueva_cantidad > 0) {
                     num_deportistas = nueva_cantidad;
-                    free(sistema);
-                    sistema = (Deportista*)malloc(num_deportistas * sizeof(Deportista));
-                    printf("Cantidad de deportistas actualizada a %d.\n", num_deportistas);
-                } else {
-                    printf("Cantidad invalida.\n");
+                    sistema = (Deportista*)realloc(sistema, num_deportistas * sizeof(Deportista));
+                    cargarDatosAleatorios(sistema, num_deportistas);
+                    printf("Sistema actualizado a %d deportistas.\n", num_deportistas);
                 }
                 break;
             }
             case 2: {
-                printf("\n--- Ordenando con MergeSort Optimizado ---\n");
-                clock_t start = clock();
-                mergeSortOptimizado(sistema, 0, num_deportistas - 1, 3); // Umbral de 3
-                clock_t end = clock();
-                printf("Mostrando el Top 15 para visualizar...\n");
-                imprimirArreglo(sistema, num_deportistas < 15 ? num_deportistas : 15);
-                printf("\nTiempo de ejecucion (MergeSort): %.3f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
+                int campo = solicitarCampo();
+                merge_sort_optimizado(sistema, 0, num_deportistas - 1, campo, 10);
+                printf("\n--- ORDENADO (MERGE SORT OPTIMIZADO) ---\n");
+                
+                int ver = (num_deportistas < 15) ? num_deportistas : 15;
+                // Si es Puntaje o Competencias, imprimimos de mayor a menor (de atrás hacia adelante)
+                if (campo == 4 || campo == 5) {
+                    for(int i = num_deportistas - 1; i >= num_deportistas - ver; i--) {
+                        imprimir_deportista(sistema[i]);
+                    }
+                } else {
+                    for(int i = 0; i < ver; i++) {
+                        imprimir_deportista(sistema[i]);
+                    }
+                }
                 break;
             }
-                
             case 3: {
-                printf("\n--- Ordenando con QuickSort (Pivote: Mediana de 3) ---\n");
-                clock_t start = clock();
-                quickSort(sistema, 0, num_deportistas - 1, 4);
-                clock_t end = clock();
-                printf("Mostrando el Top 15 para visualizar...\n");
-                imprimirArreglo(sistema, num_deportistas < 15 ? num_deportistas : 15);
-                printf("\nTiempo de ejecucion (QuickSort): %.3f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
+                int campo = solicitarCampo();
+                quick_sort_lomuto(sistema, 0, num_deportistas - 1, PIVOT_MEDIANA, campo);
+                printf("\n--- ORDENADO (QUICK SORT MEDIANA) ---\n");
+                
+                int ver = (num_deportistas < 15) ? num_deportistas : 15;
+                // Si es Puntaje o Competencias, imprimimos de mayor a menor
+                if (campo == 4 || campo == 5) {
+                    for(int i = num_deportistas - 1; i >= num_deportistas - ver; i--) {
+                        imprimir_deportista(sistema[i]);
+                    }
+                } else {
+                    for(int i = 0; i < ver; i++) {
+                        imprimir_deportista(sistema[i]);
+                    }
+                }
                 break;
             }
-                
             case 4: {
                 int k;
-                printf("Ingrese el valor de K (1 para el mejor, 2 para el segundo, etc): ");
-                scanf("%d", &k);
-                if(k > 0 && k <= num_deportistas) {
-                    clock_t start = clock();
-                    Deportista k_esimo = quickSelect(sistema, 0, num_deportistas - 1, k - 1);
-                    clock_t end = clock();
-                    printf("\nEl %d-esimo mejor deportista es:\n", k);
-                    imprimirDeportista(k_esimo);
-                    printf("\nTiempo de ejecucion (QuickSelect): %.3f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
-                } else {
-                    printf("K invalido.\n");
+                printf("Ingrese valor K (1 a %d): ", num_deportistas);
+                if (scanf("%d", &k) == 1) {
+                    if (k < 1 || k > num_deportistas) {
+                        printf("Error: K debe estar entre 1 y %d.\n", num_deportistas);
+                    } else {
+                        int campo = solicitarCampo();
+                        int k_index;
+                        
+                        // Si buscamos el "k-esimo mejor" en puntaje/competencias, 
+                        // el 1er lugar está al final del arreglo.
+                        if (campo == 4 || campo == 5) {
+                            k_index = num_deportistas - k; 
+                        } else {
+                            k_index = k - 1;
+                        }
+                        
+                        Deportista res = quick_select(sistema, 0, num_deportistas - 1, k_index, campo);
+                        printf("\nResultado K-esimo (%d):\n", k);
+                        imprimir_deportista(res);
+                    }
                 }
                 break;
             }
             case 5: {
                 int n;
-                printf("Ingrese la cantidad (N) para el Top Ranking: ");
-                scanf("%d", &n);
-                if(n > 0 && n <= num_deportistas) {
-                    clock_t start = clock();
-                    quickSort(sistema, 0, num_deportistas - 1, 3);
-                    clock_t end = clock();
-                    printf("\n--- TOP %d DEPORTISTAS ---\n", n);
-                    imprimirArreglo(sistema, n);
-                    printf("\nTiempo de ejecucion (Ordenamiento): %.3f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
+                printf("Cantidad para el Top (max %d): ", num_deportistas);
+                if (scanf("%d", &n) == 1) {
+                    if (n < 1 || n > num_deportistas) {
+                        printf("Error: Rango invalido.\n");
+                    } else {
+                        int campo_puntaje = 4;
+                        int k_index = num_deportistas - n; 
+                        
+                        quick_select(sistema, 0, num_deportistas - 1, k_index, campo_puntaje);
+                        quick_sort_lomuto(sistema, k_index, num_deportistas - 1, PIVOT_MEDIANA, campo_puntaje);
+                        
+                        printf("\n--- TOP %d DEPORTISTAS POR PUNTAJE ---\n", n);
+                        // Imprimimos de mayor a menor
+                        for(int i = num_deportistas - 1; i >= k_index; i--) {
+                            imprimir_deportista(sistema[i]);
+                        }
+                    }
                 }
                 break;
             }
             case 6: {
-                int pts, inicio, fin;
-                mergeSort(sistema, 0, num_deportistas - 1);
+                float min_pts, max_pts;
+                printf("\n--- BUSQUEDA POR RANGO DE PUNTAJE ---\n");
+                printf("Nota: Utilice punto (.) para los decimales (ej. 85.5)\n");
                 
-                printf("Arreglo actual ordenado por puntaje:\n");
-                imprimirArreglo(sistema, num_deportistas < 5 ? num_deportistas : 5);
-                
-                printf("\nIngrese el puntaje exacto a buscar: ");
-                scanf("%d", &pts);
-                
-                clock_t start = clock();
-                busquedaBinariaRangos(sistema, num_deportistas, pts, &inicio, &fin);
-                clock_t end = clock();
-
-                if(inicio != -1) {
-                    printf("\nDeportistas encontrados con %d puntos (Indices %d a %d):\n", pts, inicio, fin);
-                    for(int i = inicio; i <= fin; i++) {
-                        imprimirDeportista(sistema[i]);
-                    }
-                } else {
-                    printf("No se encontraron deportistas con ese puntaje.\n");
+                printf("Ingrese puntaje minimo: ");
+                if (scanf("%f", &min_pts) != 1) { 
+                    while(getchar() != '\n'); 
+                    break; 
                 }
-                printf("\nTiempo de ejecucion (Busqueda Binaria Rangos): %.5f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
+                
+                printf("Ingrese puntaje maximo: ");
+                if (scanf("%f", &max_pts) != 1) { 
+                    while(getchar() != '\n'); 
+                    break; 
+                }
+
+                if (min_pts > max_pts) {
+                    printf("Error: El minimo no puede ser mayor al maximo.\n");
+                } else {
+                    merge_sort_optimizado(sistema, 0, num_deportistas - 1, 4, 10);
+                    busqueda_rango_min_max(sistema, num_deportistas, min_pts, max_pts);
+                }
                 break;
             }
             case 7: {
-                int pts;
-                mergeSort(sistema, 0, num_deportistas - 1);
-                printf("\nIngrese el puntaje a buscar: ");
-                scanf("%d", &pts);
-
-                clock_t start = clock();
-                int pos = busquedaExponencial(sistema, num_deportistas, pts);
-                clock_t end = clock();
-
-                if(pos != -1) {
-                    printf("\nEncontrado mediante Busqueda Exponencial:\n");
-                    imprimirDeportista(sistema[pos]);
-                } else {
-                    printf("\nNo se encontro el puntaje.\n");
+                int id;
+                printf("Ingrese ID: ");
+                if (scanf("%d", &id) == 1) {
+                    quick_sort_lomuto(sistema, 0, num_deportistas - 1, PIVOT_MEDIANA, 1);
+                    int pos = busqueda_exponencial(sistema, num_deportistas, id);
+                    if(pos != -1) imprimir_deportista(sistema[pos]);
+                    else printf("No encontrado.\n");
                 }
-                printf("\nTiempo de ejecucion (Busqueda Exponencial): %.5f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
                 break;
             }
             case 8: {
-                int pts;
-                mergeSort(sistema, 0, num_deportistas - 1);
-                printf("\nIngrese el puntaje a buscar: ");
-                scanf("%d", &pts);
-                
-                clock_t start = clock();
-                int pos = busquedaInterpolacion(sistema, num_deportistas, pts);
-                clock_t end = clock();
-                
-                if(pos != -1) {
-                    printf("\nEncontrado mediante Busqueda de Interpolacion:\n");
-                    imprimirDeportista(sistema[pos]);
-                } else {
-                    printf("\nNo se encontro el puntaje.\n");
+                int id;
+                printf("Ingrese ID: ");
+                if (scanf("%d", &id) == 1) {
+                    quick_sort_lomuto(sistema, 0, num_deportistas - 1, PIVOT_MEDIANA, 1);
+                    int pos = busqueda_interpolacion(sistema, num_deportistas, id);
+                    if(pos != -1) imprimir_deportista(sistema[pos]);
+                    else printf("No encontrado.\n");
                 }
-                printf("\nTiempo de ejecucion (Busqueda Interpolacion): %.5f ms\n", ((double)(end - start) / CLOCKS_PER_SEC) * 1000.0);
                 break;
             }
-            case 9:
-                printf("Saliendo del sistema...\n");
-                break;
-            default:
-                printf("Opcion invalida.\n");
         }
     } while(opcion != 9);
 
