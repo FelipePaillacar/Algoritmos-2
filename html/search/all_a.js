@@ -1,0 +1,18 @@
+var searchData=
+[
+  ['generador_5fid_2ec_0',['generador_id.c',['../generador__id_8c.html',1,'']]],
+  ['generar_20gráficos_20y_20reportes_20csv_20de_20un_20solo_20golpe_1',['3. Generar Gráficos y Reportes .CSV de un solo golpe',['../index.html#autotoc_md21',1,'']]],
+  ['generar_5fdatos_5finversos_2',['generar_datos_inversos',['../deportista_8h.html#a68f86b51dad1ff61aa5f502d86423a75',1,'generar_datos_inversos(Deportista *arreglo, int cantidad):&#160;deportista.c'],['../deportista_8c.html#a68f86b51dad1ff61aa5f502d86423a75',1,'generar_datos_inversos(Deportista *arreglo, int cantidad):&#160;deportista.c']]],
+  ['generar_5fdatos_5fordenados_3',['generar_datos_ordenados',['../deportista_8h.html#aa1efd9ba6e2cededce626e1eae28507d',1,'generar_datos_ordenados(Deportista *arreglo, int cantidad):&#160;deportista.c'],['../deportista_8c.html#aa1efd9ba6e2cededce626e1eae28507d',1,'generar_datos_ordenados(Deportista *arreglo, int cantidad):&#160;deportista.c']]],
+  ['generar_5fdeportista_4',['generar_deportista',['../deportista_8h.html#a930e7c9dea0cfcdeaade58e1de9ba20a',1,'generar_deportista():&#160;deportista.c'],['../deportista_8c.html#a930e7c9dea0cfcdeaade58e1de9ba20a',1,'generar_deportista():&#160;deportista.c']]],
+  ['generar_5fdeportista_5fcon_5fid_5',['generar_deportista_con_id',['../generador__id_8c.html#aeaf678f9a1c8d47bdb000b74ab3a9114',1,'generador_id.c']]],
+  ['generar_5fdeportista_5fcon_5fid_5fespecifico_6',['generar_deportista_con_id_especifico',['../deportista_8h.html#a339636869307c36d8e12e8f033b9c123',1,'generar_deportista_con_id_especifico(int id):&#160;deportista.c'],['../deportista_8c.html#a339636869307c36d8e12e8f033b9c123',1,'generar_deportista_con_id_especifico(int id):&#160;deportista.c']]],
+  ['generar_5fnombre_5faleatorio_7',['generar_nombre_aleatorio',['../deportista_8h.html#ae425d8864524d37840ba77fbc7cf06d6',1,'generar_nombre_aleatorio(char *destino, int longitud_maxima):&#160;deportista.c'],['../deportista_8c.html#ae425d8864524d37840ba77fbc7cf06d6',1,'generar_nombre_aleatorio(char *destino, int longitud_maxima):&#160;deportista.c']]],
+  ['generarcasopromedio_8',['generarCasoPromedio',['../analisis__experimental_8c.html#a62d13208cd88bae08cf663e6dea6133d',1,'analisis_experimental.c']]],
+  ['generardatossistema_9',['generarDatosSistema',['../main_8c.html#a280691bab356b80d2678b9693e55c0df',1,'main.c']]],
+  ['generarmejorcasoordenamiento_10',['generarMejorCasoOrdenamiento',['../analisis__experimental_8c.html#ac4ab8a012436156745aae73a8a2d3310',1,'analisis_experimental.c']]],
+  ['generarpeorcasoordenamiento_11',['generarPeorCasoOrdenamiento',['../analisis__experimental_8c.html#a3dd3a6cfefc4bce9399767447a14af07',1,'analisis_experimental.c']]],
+  ['golpe_12',['3. Generar Gráficos y Reportes .CSV de un solo golpe',['../index.html#autotoc_md21',1,'']]],
+  ['gráficos_20y_20reportes_20csv_20de_20un_20solo_20golpe_13',['3. Generar Gráficos y Reportes .CSV de un solo golpe',['../index.html#autotoc_md21',1,'']]],
+  ['guardar_5fdeportistas_5fcsv_14',['guardar_deportistas_csv',['../deportista_8h.html#a7ca3b9d24dd895640cced006d3e5f2ba',1,'guardar_deportistas_csv(Deportista *arreglo, int cantidad, const char *nombre_archivo):&#160;deportista.c'],['../deportista_8c.html#a7ca3b9d24dd895640cced006d3e5f2ba',1,'guardar_deportistas_csv(Deportista *arreglo, int cantidad, const char *nombre_archivo):&#160;deportista.c']]]
+];
