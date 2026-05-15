@@ -1,0 +1,19 @@
+# Informe latex
+Informe/
+
+# Archivos latex temporales
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+*.toc
+
+# Ejecutables
+tester
+sistema
+*.out
+
+# Opcional: imágenes generadas
+# plots/*.png

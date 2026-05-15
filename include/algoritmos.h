@@ -114,4 +114,10 @@ void busquedaBinariaRangos(Deportista arr[], int n, int target, int* inicio, int
 int busquedaExponencial(Deportista arr[], int n, int target);
 int busquedaInterpolacion(Deportista arr[], int n, int target);
 
+void insertionSortN(Deportista arr[], int n);
+void cocktailShakerSort(Deportista arr[], int n);
+int busquedaSecuencial(Deportista arr[], int n, int target);
+int busquedaBinariaIterativa(Deportista arr[], int lo, int hi, int target);
+Deportista quickSelectUltimo(Deportista arr[], int low, int high, int k);
+
 #endif

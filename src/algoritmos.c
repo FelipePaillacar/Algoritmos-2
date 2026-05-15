@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "algoritmos.h"
 
+
 void swap(Deportista* a, Deportista* b) {
     Deportista temp = *a;
     *a = *b;
@@ -15,6 +16,62 @@ void imprimirDeportista(Deportista d) {
 void imprimirArreglo(Deportista arr[], int n) {
     for (int i = 0; i < n; i++) {
         imprimirDeportista(arr[i]);
+    }
+}
+
+
+// --- BUBBLE SORT, SELECTION SORT, COCKTAIL SHAKER SORT Y INSERTION SORT (Para comparar con Tarea 1) ---
+void bubbleSort(Deportista arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int swapped = 0;                          /* <-- flag nuevo */
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j].puntaje < arr[j+1].puntaje) {
+                swap(&arr[j], &arr[j+1]);
+                swapped = 1;
+            }
+        }
+        if (!swapped) break;  /* arreglo ya ordenado → salir antes */
+    }
+}
+
+void selectionSort(Deportista arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int max_idx = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j].puntaje > arr[max_idx].puntaje)
+                max_idx = j;
+        }
+        if (max_idx != i)          /* <-- optimización: no swapear si ya está */
+            swap(&arr[max_idx], &arr[i]);
+    }
+}
+
+void cocktailShakerSort(Deportista arr[], int n) {
+    int inicio = 0, fin = n - 1;
+    int swapped = 1;
+ 
+    while (swapped) {
+        swapped = 0;
+ 
+        /* Pasada izquierda → derecha: burbujea el mínimo hacia el final */
+        for (int i = inicio; i < fin; i++) {
+            if (arr[i].puntaje < arr[i+1].puntaje) {
+                swap(&arr[i], &arr[i+1]);
+                swapped = 1;
+            }
+        }
+        if (!swapped) break;
+        fin--;
+ 
+        swapped = 0;
+        /* Pasada derecha → izquierda: burbujea el máximo hacia el inicio */
+        for (int i = fin; i > inicio; i--) {
+            if (arr[i].puntaje > arr[i-1].puntaje) {
+                swap(&arr[i], &arr[i-1]);
+                swapped = 1;
+            }
+        }
+        inicio++;
     }
 }
 
@@ -32,28 +89,31 @@ void insertionSort(Deportista arr[], int left, int right) {
     }
 }
 
-// --- BUBBLE SORT Y SELECTION SORT (Para comparar con Tarea 1) ---
-void bubbleSort(Deportista arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j].puntaje < arr[j+1].puntaje) {
-                swap(&arr[j], &arr[j+1]);
-            }
-        }
-    }
+/* Wrapper para usarlo como algoritmo standalone desde experimentos.c */
+void insertionSortN(Deportista arr[], int n) {
+    insertionSort(arr, 0, n - 1);
 }
 
-void selectionSort(Deportista arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        int max_idx = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j].puntaje > arr[max_idx].puntaje) {
-                max_idx = j;
-            }
-        }
-        swap(&arr[max_idx], &arr[i]);
+// --- BUSQUEDAS (Para comparar con Tarea 1) ---
+
+int busquedaSecuencial(Deportista arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i].puntaje == target) return i;
     }
+    return -1;
 }
+
+int busquedaBinariaIterativa(Deportista arr[], int lo, int hi, int target) {
+    while (lo <= hi) {
+        int mid = lo + (hi - lo) / 2;
+        if (arr[mid].puntaje == target) return mid;
+        /* descendente: si mid es menor que target, target está a la izquierda */
+        if (arr[mid].puntaje < target) hi = mid - 1;
+        else                           lo = mid + 1;
+    }
+    return -1;
+}
+
 
 // --- MERGE SORT ---
 void merge(Deportista arr[], int left, int mid, int right) {
@@ -146,6 +206,17 @@ Deportista quickSelect(Deportista arr[], int low, int high, int k) {
     if (k == pi) return arr[pi];
     else if (k < pi) return quickSelect(arr, low, pi - 1, k);
     else return quickSelect(arr, pi + 1, high, k);
+}
+
+// quickSelect — variante con pivote último
+Deportista quickSelectUltimo(Deportista arr[], int low, int high, int k) {
+    if (low == high) return arr[low];
+ 
+    int pi = particionLomuto(arr, low, high, 1); /* pivote = último elemento */
+ 
+    if (k == pi)      return arr[pi];
+    else if (k < pi)  return quickSelectUltimo(arr, low, pi - 1, k);
+    else              return quickSelectUltimo(arr, pi + 1, high, k);
 }
 
 // --- BÚSQUEDAS (Asumiendo arreglo ordenado de mayor a menor) ---

@@ -15,8 +15,8 @@ tester: src/analisis_experimental.c src/algoritmos.c
 graficos: tester
 	mkdir -p data plots
 	./tester
-	gnuplot plots/script.gp
-
+	@echo "Generando gráficos con Gnuplot..."
+	gnuplot plots/graficos.gp
 clean:
 	rm -f sistema tester
 	rm -f data/*.csv plots/*.png
