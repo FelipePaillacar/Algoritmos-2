@@ -1,154 +1,4 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <time.h>
-// #include <string.h>
-// #include "algoritmos.h"
-
-// #define REPETICIONES 10 
-
-// // --- GENERADORES DE DATOS ---
-// void generarCasoPromedio(Deportista arr[], int n) {
-//     for (int i = 0; i < n; i++) {
-//         arr[i].id = i + 1;
-//         sprintf(arr[i].nombre, "Dep%d", i);
-//         arr[i].puntaje = rand() % 1001; 
-//     }
-// }
-
-// void generarMejorCaso(Deportista arr[], int n) {
-//     generarCasoPromedio(arr, n);
-//     // Ordenado descendente (como piden tus algoritmos)
-//     mergeSort(arr, 0, n - 1); 
-// }
-
-// void generarPeorCaso(Deportista arr[], int n) {
-//     generarCasoPromedio(arr, n);
-//     // Ordenado ascendente (lo opuesto al objetivo)
-//     // Usamos un bubble simple para invertirlo antes del test
-//     for (int i = 0; i < n - 1; i++) {
-//         for (int j = 0; j < n - i - 1; j++) {
-//             if (arr[j].puntaje > arr[j+1].puntaje) {
-//                 Deportista tmp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = tmp;
-//             }
-//         }
-//     }
-// }
-
-// int main() {
-//     srand(time(NULL));
-//     // Tamaños para algoritmos eficientes (Merge/Quick)
-//     int tamanos[] = {10000, 20000, 30000, 40000, 50000};
-//     // Tamaños pequeños para algoritmos O(n^2) de la Tarea 1
-//     int tamanos_lentos[] = {1000, 2000, 3000, 4000, 5000};
-//     int num_t = sizeof(tamanos)/sizeof(tamanos[0]);
-
-//     // 1. Comparativa Tarea 1 vs Tarea 2
-//     FILE *f_t1vst2 = fopen("data/t1_vs_t2.csv", "w");
-//     // 2. Análisis de Umbrales (Merge Sort)
-//     FILE *f_merge = fopen("data/mergesort_umbrales.csv", "w");
-//     // 3. Análisis de Pivotes (Quick Sort)
-//     FILE *f_quick = fopen("data/quicksort_pivotes.csv", "w");
-//     // 4. Análisis de Búsquedas (Promedio y Peor Caso)
-//     FILE *f_busqueda = fopen("data/busqueda_analisis.csv", "w");
-//     // 5. Quick Select
-//     FILE *f_select = fopen("data/quickselect_analisis.csv", "w");
-
-//     fprintf(f_t1vst2, "N,Bubble,Selection,Merge,Quick\n");
-//     fprintf(f_merge, "N,U1,U10,U30,U60\n");
-//     fprintf(f_quick, "N,Ultimo,Primero,Aleatorio,Mediana\n");
-//     fprintf(f_busqueda, "N,Binaria_Prom,Binaria_Peor,Exponencial,Interpolacion\n");
-//     fprintf(f_select, "N,Promedio,Peor\n");
-
-//     printf("Iniciando Análisis Experimental...\n");
-
-//     for (int i = 0; i < num_t; i++) {
-//         int n = tamanos[i];
-//         int n_lento = tamanos_lentos[i];
-//         printf("Procesando N = %d...\n", n);
-
-//         Deportista *orig = malloc(n * sizeof(Deportista));
-//         Deportista *copia = malloc(n * sizeof(Deportista));
-//         Deportista *orig_lento = malloc(n_lento * sizeof(Deportista));
-        
-//         generarCasoPromedio(orig, n);
-//         generarCasoPromedio(orig_lento, n_lento);
-
-//         // --- T1 vs T2 ---
-//         double t_bub=0, t_sel=0, t_m=0, t_q=0;
-//         for(int r=0; r<REPETICIONES; r++) {
-//             memcpy(copia, orig_lento, n_lento*sizeof(Deportista));
-//             clock_t s = clock(); bubbleSort(copia, n_lento); t_bub += (double)(clock()-s);
-            
-//             memcpy(copia, orig_lento, n_lento*sizeof(Deportista));
-//             s = clock(); selectionSort(copia, n_lento); t_sel += (double)(clock()-s);
-
-//             memcpy(copia, orig_lento, n_lento*sizeof(Deportista));
-//             s = clock(); mergeSort(copia, 0, n_lento-1); t_m += (double)(clock()-s);
-            
-//             memcpy(copia, orig_lento, n_lento*sizeof(Deportista));
-//             s = clock(); quickSort(copia, 0, n_lento-1, 4); t_q += (double)(clock()-s);
-//         }
-//         fprintf(f_t1vst2, "%d,%f,%f,%f,%f\n", n_lento, t_bub/REPETICIONES, t_sel/REPETICIONES, t_m/REPETICIONES, t_q/REPETICIONES);
-
-//         // --- MERGE UMBRALES ---
-//         double tu1=0, tu10=0, tu30=0, tu60=0;
-//         for(int r=0; r<REPETICIONES; r++) {
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             clock_t s = clock(); mergeSortOptimizado(copia, 0, n-1, 1); tu1 += (double)(clock()-s);
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); mergeSortOptimizado(copia, 0, n-1, 10); tu10 += (double)(clock()-s);
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); mergeSortOptimizado(copia, 0, n-1, 30); tu30 += (double)(clock()-s);
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); mergeSortOptimizado(copia, 0, n-1, 60); tu60 += (double)(clock()-s);
-//         }
-//         fprintf(f_merge, "%d,%f,%f,%f,%f\n", n, tu1/REPETICIONES, tu10/REPETICIONES, tu30/REPETICIONES, tu60/REPETICIONES);
-
-//         // --- QUICK PIVOTES (En Peor Caso) ---
-//         // El PDF pide ver el impacto del pivote en el rendimiento
-//         generarPeorCaso(orig, n); 
-//         double tp1=0, tp2=0, tp3=0, tp4=0;
-//         for(int r=0; r<REPETICIONES; r++) {
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             clock_t s = clock(); quickSort(copia, 0, n-1, 1); tp1 += (double)(clock()-s); // Ultimo
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); quickSort(copia, 0, n-1, 2); tp2 += (double)(clock()-s); // Primero
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); quickSort(copia, 0, n-1, 3); tp3 += (double)(clock()-s); // Aleatorio
-//             memcpy(copia, orig, n*sizeof(Deportista));
-//             s = clock(); quickSort(copia, 0, n-1, 4); tp4 += (double)(clock()-s); // Mediana 3
-//         }
-//         fprintf(f_quick, "%d,%f,%f,%f,%f\n", n, tp1/REPETICIONES, tp2/REPETICIONES, tp3/REPETICIONES, tp4/REPETICIONES);
-
-//         // --- BUSQUEDAS ---
-//         mergeSort(orig, 0, n-1); // Ordenar para búsquedas
-//         int target_existe = orig[n/2].puntaje;
-//         int target_no_existe = 9999; // Fuera del rango 0-1000
-
-//         clock_t s1 = clock(); busquedaBinariaRecursiva(orig, 0, n-1, target_existe);
-//         clock_t s2 = clock(); busquedaBinariaRecursiva(orig, 0, n-1, target_no_existe);
-//         clock_t s3 = clock(); busquedaExponencial(orig, n, target_existe);
-//         clock_t s4 = clock(); busquedaInterpolacion(orig, n, target_existe);
-
-//         fprintf(f_busqueda, "%d,%f,%f,%f,%f\n", n, (double)(s2-s1), (double)(clock()-s2), (double)(clock()-s3), (double)(clock()-s4));
-
-//         // --- QUICK SELECT ---
-//         double ts_prom=0;
-//         generarCasoPromedio(orig, n);
-//         clock_t ss = clock(); quickSelect(orig, 0, n-1, n/2); ts_prom = (double)(clock()-ss);
-//         fprintf(f_select, "%d,%f,0.0\n", n, ts_prom);
-
-//         free(orig); free(copia); free(orig_lento);
-//     }
-
-//     fclose(f_t1vst2); fclose(f_merge); fclose(f_quick); fclose(f_busqueda); fclose(f_select);
-//     printf("¡Análisis completado! Archivos CSV listos en data/.\n");
-//     return 0;
-// }
-
-
 /*
- * experimentos.c
  * Análisis experimental – Tarea 2 "Divide y Vencerás"
  *
  * Genera los CSV para los 13 gráficos requeridos:
@@ -158,22 +8,6 @@
  *   G8-10 → data/g8_g9_g10_t1_vs_t2.csv
  *   G11-12 → data/g11_g12_busqueda.csv
  *   G13  → data/g13_quickselect.csv
- *
- * SUPUESTOS sobre algoritmos.h (ajusta los nombres si difieren):
- *   bubbleSort(arr, n)
- *   insertionSort(arr, n)
- *   selectionSort(arr, n)
- *   cocktailShakerSort(arr, n)
- *   mergeSort(arr, lo, hi)
- *   mergeSortOptimizado(arr, lo, hi, umbral)
- *   quickSort(arr, lo, hi, tipoPivote)   1=ultimo 2=primero 3=aleatorio 4=mediana3
- *   busquedaSecuencial(arr, n, target)
- *   busquedaBinariaIterativa(arr, lo, hi, target)
- *   busquedaBinariaRecursiva(arr, lo, hi, target)
- *   busquedaBinariaRangos(arr, n, target, *primero, *ultimo)
- *   busquedaExponencial(arr, n, target)
- *   busquedaInterpolacion(arr, n, target)
- *   quickSelect(arr, lo, hi, k)
  */
 
 #include <stdio.h>
@@ -440,7 +274,6 @@ void experimento_G11_G12(FILE *f) {
         int target_peor    = RANGO_PUNTAJE + 1;
         /* Elemento existente en posición aleatoria → caso promedio */
         int idx_random     = rand() % n;
-        int target_promedio = arr[idx_random].puntaje;
 
         /* --- PEOR CASO --- */
         {
