@@ -1,0 +1,25 @@
+var analisis__experimental_8c =
+[
+    [ "MEDIR", "analisis__experimental_8c.html#af6156c504f7c5bba16060748f8307c84", null ],
+    [ "PROM", "analisis__experimental_8c.html#a2d66ce3044e9ca758ee20a2edf980393", null ],
+    [ "RANGO_PUNTAJE", "analisis__experimental_8c.html#a0bc285b705472f8c21f83dc1de0b0277", null ],
+    [ "REPETICIONES", "analisis__experimental_8c.html#acbac04dc2654affe0c8cb5a23e79249c", null ],
+    [ "copiar", "analisis__experimental_8c.html#ace8447c0ebbbbe99d0be402ae1420e74", null ],
+    [ "experimento_G1", "analisis__experimental_8c.html#a8130537f451e5c64e32a7671d92ea8ca", null ],
+    [ "experimento_G11_G12", "analisis__experimental_8c.html#a95e78db8f1c5cd5d8e2e712d07584479", null ],
+    [ "experimento_G13", "analisis__experimental_8c.html#a8b441f21a164f7abef67bc6b60b486c7", null ],
+    [ "experimento_G2_G3_G4", "analisis__experimental_8c.html#a7a19d71daf18f5d6a8cb7d2ddd427730", null ],
+    [ "experimento_G5_G6_G7", "analisis__experimental_8c.html#aaee9be7f0134f6c6610d7e1cce05653a", null ],
+    [ "experimento_G8_G9_G10", "analisis__experimental_8c.html#abdceb462e46011b5ae90a200dd6d9150", null ],
+    [ "generarCasoPromedio", "analisis__experimental_8c.html#a62d13208cd88bae08cf663e6dea6133d", null ],
+    [ "generarMejorCasoOrdenamiento", "analisis__experimental_8c.html#ac4ab8a012436156745aae73a8a2d3310", null ],
+    [ "generarPeorCasoOrdenamiento", "analisis__experimental_8c.html#a3dd3a6cfefc4bce9399767447a14af07", null ],
+    [ "main", "analisis__experimental_8c.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
+    [ "seg", "analisis__experimental_8c.html#af186b06a69797a329b715952e7937302", null ],
+    [ "NUM_T1", "analisis__experimental_8c.html#a3650f83258fe8b36b6b2002137a52040", null ],
+    [ "NUM_T2", "analisis__experimental_8c.html#a5c7c43f5846b2714250463994de94ec2", null ],
+    [ "NUM_UMBRALES", "analisis__experimental_8c.html#af09cf8cbd2cea97c916cb225a49269bb", null ],
+    [ "TAMANOS_T1", "analisis__experimental_8c.html#ac9daca21c49160fde0e69296699b00fc", null ],
+    [ "TAMANOS_T2", "analisis__experimental_8c.html#aa667c02d969f7593b3a2aa22ec3279ca", null ],
+    [ "UMBRALES", "analisis__experimental_8c.html#a442bf13ee68f4ece163519da8aa8a153", null ]
+];
